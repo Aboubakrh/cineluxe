@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Formulaire Film CinéLuxe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff4d00",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#0a0a0a",
+                        "surface-dark": "#171717",
+                        "border-dark": "#262626",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col justify-between py-6">
+<div class="flex flex-col gap-8 px-4">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[24px]">movie</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-none tracking-tight">CinéLuxe</h1>
+<p class="text-xs text-slate-500 dark:text-zinc-500 font-medium text-nowrap">Admin Cinéma de Luxe</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Tableau de bord</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">door_open</span>
+<span class="text-sm font-medium">Salles</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="text-sm font-semibold">Films</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="text-sm font-medium">Réservations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Analyses</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4 px-4">
+<div class="pt-4 border-t border-slate-200 dark:border-border-dark flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Paramètres</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-red-500 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Déconnexion</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 text-slate-500 dark:text-zinc-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="text-sm font-medium">Retour aux films</span>
+</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-border-dark">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none text-slate-900 dark:text-slate-100">Julian Vance</p>
+<p class="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">Directeur Général</p>
+</div>
+<div class="size-9 rounded-full border-2 border-primary/20 bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCowv4uTeA3xfota7gffoDjcjH11VmyxIwropUxPQTN0aA63Btr2Y8vu94uR2GSvdpKIM-Zf2Ah9h5bPNzdpXNkC3AaGr80uc-szNyMqvuxJzE-5L9ihQ1OFT1YO88bxaRnJNvFAL0ja6TM1PnDaQC8peWdFe7tleaJvheZOQ9v2ltKt9Ql0lVUx3gSnCHU_h1VRbXYqzU7ytg9xTjJLEwUmNHHi2OIeMOUgD3T9HEpxYRyzvp2tzCzFLZTyyQzLoUt_zzDxOgI9uXz');"></div>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-[1000px] w-full mx-auto flex flex-col gap-8">
+<div class="space-y-1">
+<h2 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Ajouter un Nouveau Film</h2>
+<p class="text-slate-500 dark:text-zinc-400 font-medium">Renseignez les informations détaillées pour l'affichage premium de votre catalogue.</p>
+</div>
+<form class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-6">
+<div class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark space-y-6 shadow-sm">
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-zinc-300">Titre du Film</label>
+<input class="w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" placeholder="ex: Oppenheimer" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-zinc-300">Synopsis</label>
+<textarea class="w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100 resize-none" placeholder="Décrivez l'intrigue du film..." rows="5"></textarea>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-zinc-300">Réalisateur</label>
+<input class="w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" placeholder="Nom du réalisateur" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-zinc-300">Date de Sortie</label>
+<input class="w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" type="date"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-zinc-300">Distribution (Casting)</label>
+<input class="w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" placeholder="Acteurs principaux (séparés par des virgules)" type="text"/>
+</div>
+</div>
+<div class="flex items-center justify-end gap-4 pt-4">
+<button class="px-6 py-2.5 rounded-lg border border-slate-200 dark:border-zinc-700 text-sm font-bold hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors" type="button">Annuler</button>
+<button class="px-8 py-2.5 rounded-lg bg-primary text-white text-sm font-black shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all" type="submit">Enregistrer le Film</button>
+</div>
+</div>
+<div class="space-y-6">
+<div class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark shadow-sm">
+<label class="text-sm font-bold text-slate-700 dark:text-zinc-300 block mb-4">Affiche du Film</label>
+<div class="relative group">
+<div class="aspect-[2/3] w-full rounded-lg border-2 border-dashed border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-800/30 flex flex-col items-center justify-center gap-3 overflow-hidden cursor-pointer hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-4xl text-slate-400 dark:text-zinc-600">add_photo_alternate</span>
+<div class="text-center px-4">
+<p class="text-xs font-bold text-slate-600 dark:text-zinc-400">Cliquez pour télécharger</p>
+<p class="text-[10px] text-slate-400 dark:text-zinc-500 mt-1">Format JPG, PNG (Max 5Mo)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark shadow-sm space-y-5">
+<h3 class="text-sm font-bold text-slate-700 dark:text-zinc-300 border-b border-slate-100 dark:border-zinc-800 pb-3">Paramètres d'affichage</h3>
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Film en Vedette</p>
+<p class="text-[11px] text-slate-500 dark:text-zinc-500">Afficher en haut de la page d'accueil</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Statut Actif</p>
+<p class="text-[11px] text-slate-500 dark:text-zinc-500">Disponible pour les réservations</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+</label>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-primary/5 border border-primary/20 shadow-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">info</span>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-wider">Conseil d'expert</p>
+<p class="text-[11px] text-slate-600 dark:text-zinc-400 leading-relaxed">Les visuels haute définition augmentent le taux de clic de 40% sur les applications de luxe. Privilégiez des affiches épurées.</p>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</main>
+</div>
+
+</body></html>

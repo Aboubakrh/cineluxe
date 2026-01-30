@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/**
+  * A catch-all path to Django template files, JavaScript, and Python files
+  * that contain Tailwind CSS classes and will be scanned by Tailwind to generate the final CSS file.
+  *
+  * If your final CSS file is not being updated after code changes, you may want to broaden or narrow
+  * the scope of this path.
+  */
+@source "../../../**/*.{html,py,js}";
+
+@theme {
+  --color-primary: #ff4d00;
+  --color-background-light: #f8f6f5;
+  --color-background-dark: #0a0a0a;
+  --color-surface-dark: #171717;
+  --color-border-dark: #262626;
+
+  --font-display: "Inter", sans-serif;
+
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+/* 3. Tes styles personnalisés (Material Symbols) */
+@utility material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
