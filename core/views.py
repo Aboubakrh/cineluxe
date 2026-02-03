@@ -21,3 +21,4 @@ class DashboardView(TemplateView):
         context['taux_occupation'] = 78.5
         context['reservations'] = Reservation.objects.select_related('client', 'film').order_by('-created_at')[:5]
         return context
+

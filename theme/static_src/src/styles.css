@@ -24,7 +24,7 @@
   --radius-xl: 0.75rem;
 }
 
-/* 3. Tes styles personnalisés (Material Symbols) */
+/*styles personnalisés (Material Symbols) */
 @utility material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }

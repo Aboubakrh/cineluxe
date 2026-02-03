@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html class="dark" lang="fr"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gestion des Salles - CinéLuxe</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="dark" lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gestion des Salles - CinéLuxe</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -31,7 +36,7 @@
             },
         }
     </script>
-<style type="text/tailwindcss">
+    <style type="text/tailwindcss">
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -43,236 +48,274 @@
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
-<div class="flex h-screen overflow-hidden">
-<aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col justify-between py-6">
-<div class="flex flex-col gap-8 px-4">
-<div class="flex items-center gap-3 px-2">
-<div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
-<span class="material-symbols-outlined">movie</span>
-</div>
-<div>
-<h1 class="text-lg font-bold leading-none tracking-tight">CinéLuxe</h1>
-<p class="text-xs text-slate-500 dark:text-zinc-500 font-medium">Admin Cinéma de Luxe</p>
-</div>
-</div>
-<nav class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-sm font-medium">Tableau de bord</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">door_open</span>
-<span class="text-sm font-semibold">Salles</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
-<span class="material-symbols-outlined">movie_filter</span>
-<span class="text-sm font-medium">Films</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
-<span class="material-symbols-outlined">confirmation_number</span>
-<span class="text-sm font-medium">Réservations</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
-<span class="material-symbols-outlined">analytics</span>
-<span class="text-sm font-medium">Analyses</span>
-</a>
-</nav>
-</div>
-<div class="flex flex-col gap-4 px-4">
-<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2.5 rounded-lg transition-all shadow-lg shadow-primary/20">
-<span class="material-symbols-outlined text-[20px]">add</span>
-<span>Nouveau Film</span>
-</button>
-<div class="pt-4 border-t border-slate-200 dark:border-border-dark flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">settings</span>
-<span class="text-sm font-medium">Paramètres</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-red-500 transition-colors" href="#">
-<span class="material-symbols-outlined">logout</span>
-<span class="text-sm font-medium">Déconnexion</span>
-</a>
-</div>
-</div>
-</aside>
-<main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
-<header class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
-<div class="flex items-center gap-6 flex-1">
-<div class="relative w-full max-w-md">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500 text-[20px]">search</span>
-<input class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:zinc-600 text-slate-900 dark:text-zinc-200" placeholder="Rechercher des salles..." type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-2 mr-4">
-<button class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-</div>
-<div class="flex items-center gap-3 border-l border-slate-200 dark:border-border-dark pl-4">
-<div class="text-right hidden sm:block">
-<p class="text-sm font-bold leading-none">Julian Vance</p>
-<p class="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">Directeur Général</p>
-</div>
-<div class="size-10 rounded-full border-2 border-primary/20 bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5-i7cJKCIuq6H-WQ7t9-_HkdmfX2vZHM5_Fju6l3ntB_xnz_OS1qkL-pN8ciotqrMyEeJJu73-d32AtMs96iu7jjHqhXNWWCbYjR8Wf0YOsMUEFKERSwnGfMRsUt7UbakqEedTSlKEjwErmkZgMypPDYurFwlSgoAdiHdOSIYYUA76Forc4RS9JTAN4NLH0kXHlUmLcwa9Rqe-c7gsdG31LObY2wGlN9M5vR_uYHhQf1us2cSAilZDGz838mFBTbN_ad8IsRo5eXW');"></div>
-</div>
-</div>
-</header>
-<div class="p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-8">
-<div class="flex flex-wrap items-end justify-between gap-4">
-<div class="space-y-1">
-<h2 class="text-3xl font-black tracking-tight uppercase">Gestion des Salles</h2>
-<p class="text-slate-500 dark:text-zinc-400">Configurez et gérez vos espaces de projection premium.</p>
-</div>
-<div class="flex gap-3">
-<button class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">add_circle</span>
-                        Ajouter une salle
-                    </button>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="glass-card rounded-2xl p-6 flex flex-col gap-6 relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4">
-<span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Active</span>
-</div>
-<div class="flex items-center gap-4">
-<div class="size-14 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-3xl">view_in_ar</span>
-</div>
-<div>
-<h3 class="text-xl font-bold">Salle IMAX 01</h3>
-<p class="text-sm text-zinc-500">Premium Experience</p>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-zinc-800/50 p-3 rounded-xl">
-<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Capacité</p>
-<p class="text-lg font-black">450 Sièges</p>
-</div>
-<div class="bg-zinc-800/50 p-3 rounded-xl">
-<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Écran</p>
-<p class="text-lg font-black">IMAX Laser</p>
-</div>
-</div>
-<div class="flex flex-col gap-2 mt-auto">
-<button class="w-full py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors">
-                            Voir le plan de salle
-                        </button>
-<button class="w-full py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-colors">
-                            Modifier la configuration
-                        </button>
-</div>
-</div>
-<div class="glass-card rounded-2xl p-6 flex flex-col gap-6 relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4">
-<span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Active</span>
-</div>
-<div class="flex items-center gap-4">
-<div class="size-14 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400">
-<span class="material-symbols-outlined text-3xl">motion_sensor_active</span>
-</div>
-<div>
-<h3 class="text-xl font-bold">Salle 4DX</h3>
-<p class="text-sm text-zinc-500">Immersive Experience</p>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-zinc-800/50 p-3 rounded-xl">
-<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Capacité</p>
-<p class="text-lg font-black">120 Sièges</p>
-</div>
-<div class="bg-zinc-800/50 p-3 rounded-xl">
-<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Écran</p>
-<p class="text-lg font-black">RealD 3D</p>
-</div>
-</div>
-<div class="flex flex-col gap-2 mt-auto">
-<button class="w-full py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors">
-                            Voir le plan de salle
-                        </button>
-<button class="w-full py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-colors">
-                            Modifier la configuration
-                        </button>
-</div>
-</div>
-<div class="glass-card rounded-2xl p-6 flex flex-col gap-6 relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4">
-<span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">Maintenance</span>
-</div>
-<div class="flex items-center gap-4">
-<div class="size-14 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-500">
-<span class="material-symbols-outlined text-3xl">workspace_premium</span>
-</div>
-<div>
-<h3 class="text-xl font-bold">VIP Gold Lounge</h3>
-<p class="text-sm text-zinc-500">Ultra Luxury</p>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-zinc-800/50 p-3 rounded-xl">
-<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Capacité</p>
-<p class="text-lg font-black">48 Fauteuils</p>
-</div>
-<div class="bg-zinc-800/50 p-3 rounded-xl">
-<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Écran</p>
-<p class="text-lg font-black">4K HDR Pro</p>
-</div>
-</div>
-<div class="flex flex-col gap-2 mt-auto">
-<button class="w-full py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors">
-                            Voir le plan de salle
-                        </button>
-<button class="w-full py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-colors">
-                            Modifier la configuration
-                        </button>
-</div>
-</div>
-<div class="glass-card rounded-2xl p-6 flex flex-col gap-6 relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4">
-<span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Active</span>
-</div>
-<div class="flex items-center gap-4">
-<div class="size-14 rounded-xl bg-zinc-500/20 flex items-center justify-center text-zinc-400">
-<span class="material-symbols-outlined text-3xl">tv</span>
-</div>
-<div>
-<h3 class="text-xl font-bold">Standard Plus 04</h3>
-<p class="text-sm text-zinc-500">Comfort Choice</p>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-zinc-800/50 p-3 rounded-xl">
-<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Capacité</p>
-<p class="text-lg font-black">280 Sièges</p>
-</div>
-<div class="bg-zinc-800/50 p-3 rounded-xl">
-<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Écran</p>
-<p class="text-lg font-black">2K Digital</p>
-</div>
-</div>
-<div class="flex flex-col gap-2 mt-auto">
-<button class="w-full py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors">
-                            Voir le plan de salle
-                        </button>
-<button class="w-full py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-colors">
-                            Modifier la configuration
-                        </button>
-</div>
-</div>
-<button class="border-2 border-dashed border-zinc-800 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:border-primary/50 hover:bg-primary/5 transition-all group">
-<div class="size-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined">add</span>
-</div>
-<div class="text-center">
-<p class="font-bold">Créer une nouvelle salle</p>
-<p class="text-xs text-zinc-500">Définissez un nouveau type d'expérience</p>
-</div>
-</button>
-</div>
-</div>
-</main>
-</div>
 
-</body></html>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+    <div class="flex h-screen overflow-hidden">
+        <aside
+            class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col justify-between py-6">
+            <div class="flex flex-col gap-8 px-4">
+                <div class="flex items-center gap-3 px-2">
+                    <div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined">movie</span>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold leading-none tracking-tight">CinéLuxe</h1>
+                        <p class="text-xs text-slate-500 dark:text-zinc-500 font-medium">Admin Cinéma de Luxe</p>
+                    </div>
+                </div>
+                <nav class="flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        <span class="text-sm font-medium">Tableau de bord</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">door_open</span>
+                        <span class="text-sm font-semibold">Salles</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">movie_filter</span>
+                        <span class="text-sm font-medium">Films</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">confirmation_number</span>
+                        <span class="text-sm font-medium">Réservations</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">analytics</span>
+                        <span class="text-sm font-medium">Analyses</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="flex flex-col gap-4 px-4">
+                <button
+                    class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2.5 rounded-lg transition-all shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined text-[20px]">add</span>
+                    <span>Nouveau Film</span>
+                </button>
+                <div class="pt-4 border-t border-slate-200 dark:border-border-dark flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">settings</span>
+                        <span class="text-sm font-medium">Paramètres</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-red-500 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">logout</span>
+                        <span class="text-sm font-medium">Déconnexion</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
+            <header
+                class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
+                <div class="flex items-center gap-6 flex-1">
+                    <div class="relative w-full max-w-md">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500 text-[20px]">search</span>
+                        <input
+                            class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:zinc-600 text-slate-900 dark:text-zinc-200"
+                            placeholder="Rechercher des salles..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 mr-4">
+                        <button
+                            class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined">notifications</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-3 border-l border-slate-200 dark:border-border-dark pl-4">
+                        <div class="text-right hidden sm:block">
+                            <p class="text-sm font-bold leading-none">Julian Vance</p>
+                            <p class="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">Directeur Général</p>
+                        </div>
+                        <div class="size-10 rounded-full border-2 border-primary/20 bg-center bg-no-repeat bg-cover"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5-i7cJKCIuq6H-WQ7t9-_HkdmfX2vZHM5_Fju6l3ntB_xnz_OS1qkL-pN8ciotqrMyEeJJu73-d32AtMs96iu7jjHqhXNWWCbYjR8Wf0YOsMUEFKERSwnGfMRsUt7UbakqEedTSlKEjwErmkZgMypPDYurFwlSgoAdiHdOSIYYUA76Forc4RS9JTAN4NLH0kXHlUmLcwa9Rqe-c7gsdG31LObY2wGlN9M5vR_uYHhQf1us2cSAilZDGz838mFBTbN_ad8IsRo5eXW');">
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-8">
+                <div class="flex flex-wrap items-end justify-between gap-4">
+                    <div class="space-y-1">
+                        <h2 class="text-3xl font-black tracking-tight uppercase">Gestion des Salles</h2>
+                        <p class="text-slate-500 dark:text-zinc-400">Configurez et gérez vos espaces de projection
+                            premium.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">add_circle</span>
+                            Ajouter une salle
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-2xl p-6 flex flex-col gap-6 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4">
+                            <span
+                                class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Active</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="size-14 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-3xl">view_in_ar</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Salle IMAX 01</h3>
+                                <p class="text-sm text-zinc-500">Premium Experience</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-zinc-800/50 p-3 rounded-xl">
+                                <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Capacité</p>
+                                <p class="text-lg font-black">450 Sièges</p>
+                            </div>
+                            <div class="bg-zinc-800/50 p-3 rounded-xl">
+                                <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Écran</p>
+                                <p class="text-lg font-black">IMAX Laser</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2 mt-auto">
+                            <button
+                                class="w-full py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors">
+                                Voir le plan de salle
+                            </button>
+                            <button
+                                class="w-full py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-colors">
+                                Modifier la configuration
+                            </button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 flex flex-col gap-6 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4">
+                            <span
+                                class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Active</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="size-14 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400">
+                                <span class="material-symbols-outlined text-3xl">motion_sensor_active</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Salle 4DX</h3>
+                                <p class="text-sm text-zinc-500">Immersive Experience</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-zinc-800/50 p-3 rounded-xl">
+                                <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Capacité</p>
+                                <p class="text-lg font-black">120 Sièges</p>
+                            </div>
+                            <div class="bg-zinc-800/50 p-3 rounded-xl">
+                                <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Écran</p>
+                                <p class="text-lg font-black">RealD 3D</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2 mt-auto">
+                            <button
+                                class="w-full py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors">
+                                Voir le plan de salle
+                            </button>
+                            <button
+                                class="w-full py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-colors">
+                                Modifier la configuration
+                            </button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 flex flex-col gap-6 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4">
+                            <span
+                                class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">Maintenance</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="size-14 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-500">
+                                <span class="material-symbols-outlined text-3xl">workspace_premium</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">VIP Gold Lounge</h3>
+                                <p class="text-sm text-zinc-500">Ultra Luxury</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-zinc-800/50 p-3 rounded-xl">
+                                <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Capacité</p>
+                                <p class="text-lg font-black">48 Fauteuils</p>
+                            </div>
+                            <div class="bg-zinc-800/50 p-3 rounded-xl">
+                                <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Écran</p>
+                                <p class="text-lg font-black">4K HDR Pro</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2 mt-auto">
+                            <button
+                                class="w-full py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors">
+                                Voir le plan de salle
+                            </button>
+                            <button
+                                class="w-full py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-colors">
+                                Modifier la configuration
+                            </button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 flex flex-col gap-6 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4">
+                            <span
+                                class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Active</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="size-14 rounded-xl bg-zinc-500/20 flex items-center justify-center text-zinc-400">
+                                <span class="material-symbols-outlined text-3xl">tv</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Standard Plus 04</h3>
+                                <p class="text-sm text-zinc-500">Comfort Choice</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-zinc-800/50 p-3 rounded-xl">
+                                <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Capacité</p>
+                                <p class="text-lg font-black">280 Sièges</p>
+                            </div>
+                            <div class="bg-zinc-800/50 p-3 rounded-xl">
+                                <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Écran</p>
+                                <p class="text-lg font-black">2K Digital</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2 mt-auto">
+                            <button
+                                class="w-full py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors">
+                                Voir le plan de salle
+                            </button>
+                            <button
+                                class="w-full py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-colors">
+                                Modifier la configuration
+                            </button>
+                        </div>
+                    </div>
+                    <button
+                        class="border-2 border-dashed border-zinc-800 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:border-primary/50 hover:bg-primary/5 transition-all group">
+                        <div
+                            class="size-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined">add</span>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-bold">Créer une nouvelle salle</p>
+                            <p class="text-xs text-zinc-500">Définissez un nouveau type d'expérience</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

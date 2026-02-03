@@ -1,332 +1,292 @@
-<!DOCTYPE html>
-<html class="dark" lang="fr"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gestion des Films | CinéLuxe</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ff4d00",
-                        "background-light": "#f8f6f5",
-                        "background-dark": "#050505",
-                        "surface-dark": "#121212",
-                        "border-dark": "#1f1f1f",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .poster-shadow {
-            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.5);
-        }
-    </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
-<div class="flex h-screen overflow-hidden">
-<aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col justify-between py-6">
-<div class="flex flex-col gap-8 px-4">
-<div class="flex items-center gap-3 px-2">
-<div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
-<span class="material-symbols-outlined">movie</span>
-</div>
-<div>
-<h1 class="text-lg font-bold leading-none tracking-tight">CinéLuxe</h1>
-<p class="text-xs text-slate-500 dark:text-zinc-500 font-medium">Admin Cinéma de Luxe</p>
-</div>
-</div>
-<nav class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-sm font-medium">Tableau de bord</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
-<span class="material-symbols-outlined">door_open</span>
-<span class="text-sm font-medium">Salles</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">movie_filter</span>
-<span class="text-sm font-semibold">Films</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
-<span class="material-symbols-outlined">confirmation_number</span>
-<span class="text-sm font-medium">Réservations</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
-<span class="material-symbols-outlined">analytics</span>
-<span class="text-sm font-medium">Analyses</span>
-</a>
-</nav>
-</div>
-<div class="flex flex-col gap-4 px-4">
-<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2.5 rounded-lg transition-all shadow-lg shadow-primary/20">
-<span class="material-symbols-outlined text-[20px]">add</span>
-<span>Nouveau Film</span>
-</button>
-<div class="pt-4 border-t border-slate-200 dark:border-border-dark flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">settings</span>
-<span class="text-sm font-medium">Paramètres</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-red-500 transition-colors" href="#">
-<span class="material-symbols-outlined">logout</span>
-<span class="text-sm font-medium">Déconnexion</span>
-</a>
-</div>
-</div>
-</aside>
-<main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
-<header class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
-<div class="flex items-center gap-6 flex-1">
-<div class="relative w-full max-w-md">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500 text-[20px]">search</span>
-<input class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:zinc-600 text-slate-900 dark:text-zinc-200" placeholder="Rechercher un film, genre, acteur..." type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-2 mr-4 text-slate-600 dark:text-zinc-400">
-<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 hover:text-primary transition-colors">
-<span class="material-symbols-outlined">filter_list</span>
-</button>
-<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 hover:text-primary transition-colors relative">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 size-2 bg-primary rounded-full ring-2 ring-white dark:ring-surface-dark"></span>
-</button>
-</div>
-<div class="flex items-center gap-3 border-l border-slate-200 dark:border-border-dark pl-4">
-<div class="text-right hidden sm:block">
-<p class="text-sm font-bold leading-none">Julian Vance</p>
-<p class="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">Directeur Général</p>
-</div>
-<div class="size-10 rounded-full border-2 border-primary/20 bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnUfUvuz3s5zlNab47Y21irpOqc6YictR2JwaKwaw_eWEA_6qutwmuq4nDfFd4XNF8sWtqIhktxi7nesoGW-TmSkr32DZ9o93fL2c7TzRYE36JMvs0-kjmhQ7QDfoFLtPUAXGbhprinVFX4TPNiUqGb0Ef2xBWXCN4jf9arFBzi1G6CGEI3fCrRWSNMErTLEnfK80oNohYpA8dEK8o_qe4PJBEWwBZnQ3CkyTnU9a4fWCKaujBL4Fe91nfSenJJTS88RfvHMPIQ0g2');"></div>
-</div>
-</div>
-</header>
-<div class="p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-8">
-<div class="flex flex-wrap items-end justify-between gap-4">
-<div class="space-y-1">
-<h2 class="text-3xl font-black tracking-tight">Gestion des Films</h2>
-<p class="text-slate-500 dark:text-zinc-400">Gérez votre catalogue de films exclusifs et les séances à venir.</p>
-</div>
-<div class="flex gap-3">
-<button class="px-4 py-2.5 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2">
-<span class="material-symbols-outlined text-lg">add_circle</span>
-                        Ajouter un film
-                    </button>
-</div>
-</div>
-<div class="flex flex-wrap items-center gap-4 p-4 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark">
-<div class="flex-1 min-w-[200px]">
-<label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 ml-1">Genre</label>
-<select class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-primary/20 py-2">
-<option>Tous les genres</option>
-<option>Science-fiction</option>
-<option>Action</option>
-<option>Drame</option>
-<option>Horreur</option>
-</select>
-</div>
-<div class="flex-1 min-w-[200px]">
-<label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 ml-1">Statut</label>
-<select class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-primary/20 py-2">
-<option>Tous les statuts</option>
-<option>En salle</option>
-<option>Bientôt</option>
-<option>Archives</option>
-</select>
-</div>
-<div class="flex-1 min-w-[200px]">
-<label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 ml-1">Trier par</label>
-<select class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-primary/20 py-2">
-<option>Plus récents</option>
-<option>Note critique</option>
-<option>Alphabétique</option>
-</select>
-</div>
-</div>
-<div class="rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark overflow-hidden shadow-xl">
-<div class="overflow-x-auto">
-<table class="w-full text-left">
-<thead class="bg-slate-50 dark:bg-zinc-800/50 text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">
-<tr>
-<th class="px-6 py-4 w-24">Affiche</th>
-<th class="px-6 py-4">Titre du film</th>
-<th class="px-6 py-4">Genre</th>
-<th class="px-6 py-4">Durée</th>
-<th class="px-6 py-4">Statut</th>
-<th class="px-6 py-4 text-right">Actions</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-100 dark:divide-zinc-800/50">
-<tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/20 transition-colors group">
-<td class="px-6 py-4">
-<div class="w-14 h-20 rounded-md bg-zinc-800 overflow-hidden poster-shadow">
-<img alt="Dune" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB50la6bzoxrrSqWtoAeLk-mfBBXtBKZsX_9BN68jqL9YoMvaKKS0L_Q_BieUwXbHEupThzVh654ClvZlJiHYl7e3nGvQ71q0oUlMIA5ytoADYBqNCq2G_mopgi9dGSa1fOeSHZrxRFONnTk-GvlIAe8Cx1MxHKf-qG2Ptelfh-DlSMe7EFVNwmKKj-m7fZlyyTWE8-769MmTwjhnUiN2vnLLZiZCp1gdAeBMy8xxMtV1w3EMmGLZjgqVPQOmkHNus75-SEZJHC30mX"/>
-</div>
-</td>
-<td class="px-6 py-4">
-<div>
-<p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Dune: Deuxième Partie</p>
-<p class="text-xs text-slate-500 dark:text-zinc-500">Denis Villeneuve · 2024</p>
-</div>
-</td>
-<td class="px-6 py-4">
-<span class="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">Science-fiction</span>
-</td>
-<td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
-                                    2h 46min
-                                </td>
-<td class="px-6 py-4">
-<span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">En salle</span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-2">
-<button class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-400 transition-colors">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-<button class="p-2 rounded-lg hover:bg-red-500/10 text-slate-600 dark:text-zinc-400 hover:text-red-500 transition-colors">
-<span class="material-symbols-outlined text-[18px]">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/20 transition-colors group">
-<td class="px-6 py-4">
-<div class="w-14 h-20 rounded-md bg-zinc-800 overflow-hidden poster-shadow">
-<img alt="Oppenheimer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYISTEG5ZQWtX2OHmkxfnK_FSiGG0ry-_VG-00A0ipjkZeD84f4YxViRSfQuFGNK6txkq1D4ken352q2PYhowNIuQRWEEEobCV1wbf7MivwUBK7kgBf0UO9kMNLXJL1PyHeD8uMqI1qcRdOHBOu7ya4TWZvcEJep3e4a7FV9e2XYKSg0mJADp0s2lcP_DsSsP37Z-jGfuHWJeKAFhxkgV_58mk-sYWNIY-4aaOv_m6NTV9AixLszFc58tkLrDFygRMZYj24CZSmLox"/>
-</div>
-</td>
-<td class="px-6 py-4">
-<div>
-<p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Oppenheimer</p>
-<p class="text-xs text-slate-500 dark:text-zinc-500">Christopher Nolan · 2023</p>
-</div>
-</td>
-<td class="px-6 py-4">
-<span class="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">Drame, Historique</span>
-</td>
-<td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
-                                    3h 00min
-                                </td>
-<td class="px-6 py-4">
-<span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">En salle</span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-2">
-<button class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-400 transition-colors">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-<button class="p-2 rounded-lg hover:bg-red-500/10 text-slate-600 dark:text-zinc-400 hover:text-red-500 transition-colors">
-<span class="material-symbols-outlined text-[18px]">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/20 transition-colors group">
-<td class="px-6 py-4">
-<div class="w-14 h-20 rounded-md bg-zinc-800 overflow-hidden poster-shadow">
-<img alt="Gladiator II" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBid7MJgql7zT7jPQ9g66Qd_I5Erlfq2gpSwsFMayGfN8F3EE1mgxNbQ2LqlXlYK-rRSlecEDRGdn5D1aJSaQkCUTVMNYCRg4SjwzNlYwDm8s4TrfiFeB9EWX7BXsz-GbXX9H9CWxymQ6TvdpU3JLYHurkVeUZWwVdCTMjj-MRiJT1PET_lryQd_Frl9BNVO0fN4uW7Gh70QQjaa-Ytfbf9VXcIxwKT_MMfxR5IQYt8kUFDhftGOkneP4UII1Wg_iRjWNN6FtEmgadc"/>
-</div>
-</td>
-<td class="px-6 py-4">
-<div>
-<p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Gladiator II</p>
-<p class="text-xs text-slate-500 dark:text-zinc-500">Ridley Scott · 2024</p>
-</div>
-</td>
-<td class="px-6 py-4">
-<span class="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">Action, Drame</span>
-</td>
-<td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
-                                    2h 30min
-                                </td>
-<td class="px-6 py-4">
-<span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">Bientôt</span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-2">
-<button class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-400 transition-colors">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-<button class="p-2 rounded-lg hover:bg-red-500/10 text-slate-600 dark:text-zinc-400 hover:text-red-500 transition-colors">
-<span class="material-symbols-outlined text-[18px]">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/20 transition-colors group">
-<td class="px-6 py-4">
-<div class="w-14 h-20 rounded-md bg-zinc-800 overflow-hidden poster-shadow">
-<img alt="Joker" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1ah4ZQQ2NN32Vl3VHlSvr_8iF86iy_Zj4o6lZcgHzqWpN-9zZpMwNZF3fae2pyYmfXbt7tV_7_KppWfechdKdYmDBftzv0hxcb-EthQ54nnn9Q6SNZgGcI5wkhzEtCAVGPx-dDwnRnhh6xIxor0DtYgoadIvP8PNVgeck4bnMsPkZqTaiT2YhYBi4HzlwHct5JpiHshM0IyetJIiWz5CEbViePv5k9LYTPrBOfUbhq6OFK1UgttvqkdTaqQG1FMPs8ypLct3Y7Uvp"/>
-</div>
-</td>
-<td class="px-6 py-4">
-<div>
-<p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Joker: Folie à Deux</p>
-<p class="text-xs text-slate-500 dark:text-zinc-500">Todd Phillips · 2024</p>
-</div>
-</td>
-<td class="px-6 py-4">
-<span class="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">Drame, Musical</span>
-</td>
-<td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
-                                    2h 18min
-                                </td>
-<td class="px-6 py-4">
-<span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">En salle</span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-2">
-<button class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-400 transition-colors">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-<button class="p-2 rounded-lg hover:bg-red-500/10 text-slate-600 dark:text-zinc-400 hover:text-red-500 transition-colors">
-<span class="material-symbols-outlined text-[18px]">delete</span>
-</button>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="px-6 py-4 border-t border-slate-200 dark:border-border-dark flex items-center justify-between bg-slate-50/50 dark:bg-zinc-800/30">
-<p class="text-xs text-slate-500 dark:text-zinc-500 font-medium">Affichage de 1 à 4 sur 24 films</p>
-<div class="flex gap-2">
-<button class="p-2 rounded-lg border border-slate-200 dark:border-zinc-700 text-slate-400 disabled:opacity-50" disabled="">
-<span class="material-symbols-outlined text-sm">chevron_left</span>
-</button>
-<button class="size-8 rounded-lg bg-primary text-white text-xs font-bold">1</button>
-<button class="size-8 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-xs font-bold transition-colors">2</button>
-<button class="size-8 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-xs font-bold transition-colors">3</button>
-<button class="p-2 rounded-lg border border-slate-200 dark:border-zinc-700 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors">
-<span class="material-symbols-outlined text-sm">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
+{% extends 'admin_base.html' %}
+{% block title %} liste des Films {% endblock %}
 
-</body></html>
+{% block content %}
+<main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
+    <header
+        class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
+        <div class="flex items-center gap-6 flex-1">
+            <div class="relative w-full max-w-md">
+                <span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500 text-[20px]">search</span>
+                <input
+                    class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:zinc-600 text-slate-900 dark:text-zinc-200"
+                    placeholder="Rechercher un film, genre, acteur..." type="text" />
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 mr-4 text-slate-600 dark:text-zinc-400">
+                <button
+                    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">filter_list</span>
+                </button>
+                <button
+                    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 hover:text-primary transition-colors relative">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span
+                        class="absolute top-2 right-2 size-2 bg-primary rounded-full ring-2 ring-white dark:ring-surface-dark"></span>
+                </button>
+            </div>
+            <div class="flex items-center gap-3 border-l border-slate-200 dark:border-border-dark pl-4">
+                <div class="text-right hidden sm:block">
+                    <p class="text-sm font-bold leading-none">Julian Vance</p>
+                    <p class="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">Directeur Général</p>
+                </div>
+                <div class="size-10 rounded-full border-2 border-primary/20 bg-center bg-no-repeat bg-cover"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnUfUvuz3s5zlNab47Y21irpOqc6YictR2JwaKwaw_eWEA_6qutwmuq4nDfFd4XNF8sWtqIhktxi7nesoGW-TmSkr32DZ9o93fL2c7TzRYE36JMvs0-kjmhQ7QDfoFLtPUAXGbhprinVFX4TPNiUqGb0Ef2xBWXCN4jf9arFBzi1G6CGEI3fCrRWSNMErTLEnfK80oNohYpA8dEK8o_qe4PJBEWwBZnQ3CkyTnU9a4fWCKaujBL4Fe91nfSenJJTS88RfvHMPIQ0g2');">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-8">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+            <div class="space-y-1">
+                <h2 class="text-3xl font-black tracking-tight">Gestion des Films</h2>
+                <p class="text-slate-500 dark:text-zinc-400">Gérez votre catalogue de films exclusifs et les séances à
+                    venir.</p>
+            </div>
+            <div class="flex gap-3">
+                <a href="{% url 'film_create' %}"
+                    class="px-4 py-2.5 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">add_circle</span>
+                    Ajouter un film
+                </a>
+            </div>
+        </div>
+        <div
+            class="flex flex-wrap items-center gap-4 p-4 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark">
+            <div class="flex-1 min-w-[200px]">
+                <label
+                    class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 ml-1">Genre</label>
+                <select
+                    class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-primary/20 py-2">
+                    <option>Tous les genres</option>
+                    <option>Science-fiction</option>
+                    <option>Action</option>
+                    <option>Drame</option>
+                    <option>Horreur</option>
+                </select>
+            </div>
+            <div class="flex-1 min-w-[200px]">
+                <label
+                    class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 ml-1">Statut</label>
+                <select
+                    class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-primary/20 py-2">
+                    <option>Tous les statuts</option>
+                    <option>En salle</option>
+                    <option>Bientôt</option>
+                    <option>Archives</option>
+                </select>
+            </div>
+            <div class="flex-1 min-w-[200px]">
+                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 ml-1">Trier
+                    par</label>
+                <select
+                    class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-primary/20 py-2">
+                    <option>Plus récents</option>
+                    <option>Note critique</option>
+                    <option>Alphabétique</option>
+                </select>
+            </div>
+        </div>
+        <div
+            class="rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark overflow-hidden shadow-xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead
+                        class="bg-slate-50 dark:bg-zinc-800/50 text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">
+                        <tr>
+                            <th class="px-6 py-4 w-24">Affiche</th>
+                            <th class="px-6 py-4">Titre du film</th>
+                            <th class="px-6 py-4">Genre</th>
+                            <th class="px-6 py-4">Durée</th>
+                            <th class="px-6 py-4">Statut</th>
+                            <th class="px-6 py-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-zinc-800/50">
+                    {% for film in films %}
+                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/20 transition-colors group">
+                            <td class="px-6 py-4">
+                                <div class="w-14 h-20 rounded-md bg-zinc-800 overflow-hidden poster-shadow">
+                                    <img alt="{{film.tire}}" class="w-full h-full object-cover"
+                                        src="{{ film.affiche }}" />
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900 dark:text-zinc-100">{{ film.tire }}
+                                    </p>
+                                    <p class="text-xs text-slate-500 dark:text-zinc-500">Denis Villeneuve · 2024</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">Science-fiction</span>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
+                                {{ duree_formatee }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">En
+                                    salle</span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex justify-end gap-2">
+                                    <a href="{% url 'film_delete' film.pk %}"
+                                        class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-400 transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    </a>
+                                    <a href="{% url 'film_delete' film.pk %}"
+                                        class="p-2 rounded-lg hover:bg-red-500/10 text-slate-600 dark:text-zinc-400 hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/20 transition-colors group">
+                            <td class="px-6 py-4">
+                                <div class="w-14 h-20 rounded-md bg-zinc-800 overflow-hidden poster-shadow">
+                                    <img alt="Oppenheimer" class="w-full h-full object-cover"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYISTEG5ZQWtX2OHmkxfnK_FSiGG0ry-_VG-00A0ipjkZeD84f4YxViRSfQuFGNK6txkq1D4ken352q2PYhowNIuQRWEEEobCV1wbf7MivwUBK7kgBf0UO9kMNLXJL1PyHeD8uMqI1qcRdOHBOu7ya4TWZvcEJep3e4a7FV9e2XYKSg0mJADp0s2lcP_DsSsP37Z-jGfuHWJeKAFhxkgV_58mk-sYWNIY-4aaOv_m6NTV9AixLszFc58tkLrDFygRMZYj24CZSmLox" />
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Oppenheimer</p>
+                                    <p class="text-xs text-slate-500 dark:text-zinc-500">Christopher Nolan · 2023</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">Drame,
+                                    Historique</span>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
+                                3h 00min
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">En
+                                    salle</span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex justify-end gap-2">
+                                    <button
+                                        class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-400 transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    </button>
+                                    <button
+                                        class="p-2 rounded-lg hover:bg-red-500/10 text-slate-600 dark:text-zinc-400 hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/20 transition-colors group">
+                            <td class="px-6 py-4">
+                                <div class="w-14 h-20 rounded-md bg-zinc-800 overflow-hidden poster-shadow">
+                                    <img alt="Gladiator II" class="w-full h-full object-cover"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBid7MJgql7zT7jPQ9g66Qd_I5Erlfq2gpSwsFMayGfN8F3EE1mgxNbQ2LqlXlYK-rRSlecEDRGdn5D1aJSaQkCUTVMNYCRg4SjwzNlYwDm8s4TrfiFeB9EWX7BXsz-GbXX9H9CWxymQ6TvdpU3JLYHurkVeUZWwVdCTMjj-MRiJT1PET_lryQd_Frl9BNVO0fN4uW7Gh70QQjaa-Ytfbf9VXcIxwKT_MMfxR5IQYt8kUFDhftGOkneP4UII1Wg_iRjWNN6FtEmgadc" />
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Gladiator II</p>
+                                    <p class="text-xs text-slate-500 dark:text-zinc-500">Ridley Scott · 2024</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">Action,
+                                    Drame</span>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
+                                2h 30min
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">Bientôt</span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex justify-end gap-2">
+                                    <button
+                                        class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-400 transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    </button>
+                                    <button
+                                        class="p-2 rounded-lg hover:bg-red-500/10 text-slate-600 dark:text-zinc-400 hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/20 transition-colors group">
+                            <td class="px-6 py-4">
+                                <div class="w-14 h-20 rounded-md bg-zinc-800 overflow-hidden poster-shadow">
+                                    <img alt="Joker" class="w-full h-full object-cover"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1ah4ZQQ2NN32Vl3VHlSvr_8iF86iy_Zj4o6lZcgHzqWpN-9zZpMwNZF3fae2pyYmfXbt7tV_7_KppWfechdKdYmDBftzv0hxcb-EthQ54nnn9Q6SNZgGcI5wkhzEtCAVGPx-dDwnRnhh6xIxor0DtYgoadIvP8PNVgeck4bnMsPkZqTaiT2YhYBi4HzlwHct5JpiHshM0IyetJIiWz5CEbViePv5k9LYTPrBOfUbhq6OFK1UgttvqkdTaqQG1FMPs8ypLct3Y7Uvp" />
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900 dark:text-zinc-100">Joker: Folie à Deux
+                                    </p>
+                                    <p class="text-xs text-slate-500 dark:text-zinc-500">Todd Phillips · 2024</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">Drame,
+                                    Musical</span>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
+                                2h 18min
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">En
+                                    salle</span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex justify-end gap-2">
+                                    <button
+                                        class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-400 transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    </button>
+                                    <button
+                                        class="p-2 rounded-lg hover:bg-red-500/10 text-slate-600 dark:text-zinc-400 hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div
+                class="px-6 py-4 border-t border-slate-200 dark:border-border-dark flex items-center justify-between bg-slate-50/50 dark:bg-zinc-800/30">
+                <p class="text-xs text-slate-500 dark:text-zinc-500 font-medium">Affichage de 1 à 4 sur 24 films</p>
+                <div class="flex gap-2">
+                    <button
+                        class="p-2 rounded-lg border border-slate-200 dark:border-zinc-700 text-slate-400 disabled:opacity-50"
+                        disabled="">
+                        <span class="material-symbols-outlined text-sm">chevron_left</span>
+                    </button>
+                    <button class="size-8 rounded-lg bg-primary text-white text-xs font-bold">1</button>
+                    <button
+                        class="size-8 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-xs font-bold transition-colors">2</button>
+                    <button
+                        class="size-8 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-700 text-xs font-bold transition-colors">3</button>
+                    <button
+                        class="p-2 rounded-lg border border-slate-200 dark:border-zinc-700 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors">
+                        <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
