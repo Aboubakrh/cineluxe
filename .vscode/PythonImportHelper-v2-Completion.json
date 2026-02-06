@@ -1,0 +1,1887 @@
+[
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "importPath": "account.models",
+        "description": "account.models",
+        "isExtraImport": true,
+        "detail": "account.models",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "importPath": "account.models",
+        "description": "account.models",
+        "isExtraImport": true,
+        "detail": "account.models",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "core.models",
+        "description": "core.models",
+        "isExtraImport": true,
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "core.models",
+        "description": "core.models",
+        "isExtraImport": true,
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "core.models",
+        "description": "core.models",
+        "isExtraImport": true,
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "core.models",
+        "description": "core.models",
+        "isExtraImport": true,
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "core.models",
+        "description": "core.models",
+        "isExtraImport": true,
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "core.models",
+        "description": "core.models",
+        "isExtraImport": true,
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "AccueilView",
+        "importPath": "account.views",
+        "description": "account.views",
+        "isExtraImport": true,
+        "detail": "account.views",
+        "documentation": {}
+    },
+    {
+        "label": "TemplateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "CreateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "ListView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "TemplateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "TemplateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "CreateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "ListView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DetailView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "FormView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "ListView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DetailView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "CreateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "ListView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "CreateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "ListView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "Film",
+        "importPath": "film_manager.models",
+        "description": "film_manager.models",
+        "isExtraImport": true,
+        "detail": "film_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Film",
+        "importPath": "film_manager.models",
+        "description": "film_manager.models",
+        "isExtraImport": true,
+        "detail": "film_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Film",
+        "importPath": "film_manager.models",
+        "description": "film_manager.models",
+        "isExtraImport": true,
+        "detail": "film_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Film",
+        "importPath": "film_manager.models",
+        "description": "film_manager.models",
+        "isExtraImport": true,
+        "detail": "film_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Film",
+        "importPath": "film_manager.models",
+        "description": "film_manager.models",
+        "isExtraImport": true,
+        "detail": "film_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Cinema",
+        "importPath": "cinema_manager.models",
+        "description": "cinema_manager.models",
+        "isExtraImport": true,
+        "detail": "cinema_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Cinema",
+        "importPath": "cinema_manager.models",
+        "description": "cinema_manager.models",
+        "isExtraImport": true,
+        "detail": "cinema_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaListView",
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "isExtraImport": true,
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaCreateView",
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "isExtraImport": true,
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaUpdateView",
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "isExtraImport": true,
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaDeleteView",
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "isExtraImport": true,
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "DashboardView",
+        "importPath": "core.views",
+        "description": "core.views",
+        "isExtraImport": true,
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "Reservation",
+        "importPath": "reservation_manager.models",
+        "description": "reservation_manager.models",
+        "isExtraImport": true,
+        "detail": "reservation_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Reservation",
+        "importPath": "reservation_manager.models",
+        "description": "reservation_manager.models",
+        "isExtraImport": true,
+        "detail": "reservation_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Reservation",
+        "importPath": "reservation_manager.models",
+        "description": "reservation_manager.models",
+        "isExtraImport": true,
+        "detail": "reservation_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Reservation",
+        "importPath": "reservation_manager.models",
+        "description": "reservation_manager.models",
+        "isExtraImport": true,
+        "detail": "reservation_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Salle",
+        "importPath": "salle_manager.models",
+        "description": "salle_manager.models",
+        "isExtraImport": true,
+        "detail": "salle_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Salle",
+        "importPath": "salle_manager.models",
+        "description": "salle_manager.models",
+        "isExtraImport": true,
+        "detail": "salle_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Salle",
+        "importPath": "salle_manager.models",
+        "description": "salle_manager.models",
+        "isExtraImport": true,
+        "detail": "salle_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "FilmCreateView",
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "isExtraImport": true,
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "FilmListView",
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "isExtraImport": true,
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "FilmUpdateView",
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "isExtraImport": true,
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "FilmDeleteView",
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "isExtraImport": true,
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "FilmDetailView",
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "isExtraImport": true,
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "django.core.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "MinValueValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "MinValueValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "Seance",
+        "importPath": "seance_manager.models",
+        "description": "seance_manager.models",
+        "isExtraImport": true,
+        "detail": "seance_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Seance",
+        "importPath": "seance_manager.models",
+        "description": "seance_manager.models",
+        "isExtraImport": true,
+        "detail": "seance_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "Seance",
+        "importPath": "seance_manager.models",
+        "description": "seance_manager.models",
+        "isExtraImport": true,
+        "detail": "seance_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "ReservationListView",
+        "importPath": "reservation_manager.views",
+        "description": "reservation_manager.views",
+        "isExtraImport": true,
+        "detail": "reservation_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "ReservationDetailView",
+        "importPath": "reservation_manager.views",
+        "description": "reservation_manager.views",
+        "isExtraImport": true,
+        "detail": "reservation_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "ClientReservationCreateView",
+        "importPath": "reservation_manager.client_views",
+        "description": "reservation_manager.client_views",
+        "isExtraImport": true,
+        "detail": "reservation_manager.client_views",
+        "documentation": {}
+    },
+    {
+        "label": "SalleListView",
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "isExtraImport": true,
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SalleCreateView",
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "isExtraImport": true,
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SalleUpdateView",
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "isExtraImport": true,
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SalleDeleteView",
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "isExtraImport": true,
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceListView",
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "isExtraImport": true,
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceCreateView",
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "isExtraImport": true,
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceUpdateView",
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "isExtraImport": true,
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceDeleteView",
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "isExtraImport": true,
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "account.migrations.0001_initial",
+        "description": "account.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Client',\n            fields=[\n                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),\n                ('created_at', models.DateTimeField(auto_now_add=True)),",
+        "detail": "account.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "ClientAdmin",
+        "kind": 6,
+        "importPath": "account.admin",
+        "description": "account.admin",
+        "peekOfCode": "class ClientAdmin(admin.ModelAdmin):\n    pass",
+        "detail": "account.admin",
+        "documentation": {}
+    },
+    {
+        "label": "AccountConfig",
+        "kind": 6,
+        "importPath": "account.apps",
+        "description": "account.apps",
+        "peekOfCode": "class AccountConfig(AppConfig):\n    name = 'account'",
+        "detail": "account.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "kind": 6,
+        "importPath": "account.models",
+        "description": "account.models",
+        "peekOfCode": "class Client(BaseModel):\n    nom = models.CharField(max_length=100)\n    prenom = models.CharField(max_length=100)\n    email = models.EmailField(unique=True)\n    telephone = models.CharField(max_length=20)\n    class Meta:\n        indexes = [models.Index(fields=['email'])]\n    def __str__(self):\n        return f\"{self.prenom} {self.nom}\"",
+        "detail": "account.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "account.urls",
+        "description": "account.urls",
+        "peekOfCode": "urlpatterns = [\n    path('', AccueilView.as_view(), name='accueil'),\n]",
+        "detail": "account.urls",
+        "documentation": {}
+    },
+    {
+        "label": "AccueilView",
+        "kind": 6,
+        "importPath": "account.views",
+        "description": "account.views",
+        "peekOfCode": "class AccueilView(TemplateView):\n    template_name = 'accueil/accueil.html'\n    def get_context_data(self, **kwargs):\n        context = super(AccueilView, self).get_context_data(**kwargs)\n        context['films'] = Film.objects.all()\n        print(context['films'])\n        return context",
+        "detail": "account.views",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "CineLuxe.asgi",
+        "description": "CineLuxe.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "CineLuxe.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-_@0w+(nch6gwef0+0l(a1ooowrur^km38=8l&vk)svi6879p#o'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-_@0w+(nch6gwef0+0l(a1ooowrur^km38=8l&vk)svi6879p#o'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-_@0w+(nch6gwef0+0l(a1ooowrur^km38=8l&vk)svi6879p#o'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'cinema_manager',",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'cinema_manager',\n    'film_manager',\n    'salle_manager',",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TAILWIND_APP_NAME",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "TAILWIND_APP_NAME = 'theme'\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'CineLuxe.urls'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "ROOT_URLCONF = 'CineLuxe.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [BASE_DIR / 'templates']\n        ,\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [BASE_DIR / 'templates']\n        ,\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'CineLuxe.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'cineluxe',\n        'USER': 'booba',\n        'PASSWORD': 'diouf',\n        'HOST': 'localhost',",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'cineluxe',\n        'USER': 'booba',\n        'PASSWORD': 'diouf',\n        'HOST': 'localhost',\n        'PORT': '5432',\n    }\n}",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'fr-fr'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "CineLuxe.urls",
+        "description": "CineLuxe.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('account.urls')),\n    path('admin-custom/', include('core.urls')),\n    path('cinema/', include('cinema_manager.urls')),\n    path('salle/', include('salle_manager.urls')),\n    path('seance/', include('seance_manager.urls')),\n    path('reservation/', include('reservation_manager.urls')),\n    path('film/', include('film_manager.urls')),\n] ",
+        "detail": "CineLuxe.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "CineLuxe.wsgi",
+        "description": "CineLuxe.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "CineLuxe.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "cinema_manager.migrations.0001_initial",
+        "description": "cinema_manager.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Cinema',\n            fields=[\n                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),\n                ('created_at', models.DateTimeField(auto_now_add=True)),",
+        "detail": "cinema_manager.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaAdmin",
+        "kind": 6,
+        "importPath": "cinema_manager.admin",
+        "description": "cinema_manager.admin",
+        "peekOfCode": "class CinemaAdmin(admin.ModelAdmin):\n    pass",
+        "detail": "cinema_manager.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaManagerConfig",
+        "kind": 6,
+        "importPath": "cinema_manager.apps",
+        "description": "cinema_manager.apps",
+        "peekOfCode": "class CinemaManagerConfig(AppConfig):\n    name = 'cinema_manager'",
+        "detail": "cinema_manager.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Cinema",
+        "kind": 6,
+        "importPath": "cinema_manager.models",
+        "description": "cinema_manager.models",
+        "peekOfCode": "class Cinema(BaseModel):\n    nom = models.CharField(max_length=200)\n    adresse = models.CharField(max_length=200)\n    ville = models.CharField(max_length=200)\n    def __str__(self):\n        return  f'{self.nom} | {self.ville}'\n    class Meta:\n        indexes = [models.Index(fields=['nom'])]\n        verbose_name = 'Cinéma'\n        verbose_name_plural = 'Cinemas'",
+        "detail": "cinema_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "cinema_manager.urls",
+        "description": "cinema_manager.urls",
+        "peekOfCode": "urlpatterns = [\n    path('list/', CinemaListView.as_view(), name='cinema_list'),\n    path('create/', CinemaCreateView.as_view(), name='cinema_create'),\n    path('edit/<uuid:pk>/', CinemaUpdateView.as_view(), name='cinema_update'),\n    path('delete/<uuid:pk>/', CinemaDeleteView.as_view(), name='cinema_delete'),\n]",
+        "detail": "cinema_manager.urls",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaListView",
+        "kind": 6,
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "peekOfCode": "class CinemaListView(ListView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_list.html'\n    context_object_name = 'cinemas'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass CinemaCreateView(CreateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'",
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaCreateView",
+        "kind": 6,
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "peekOfCode": "class CinemaCreateView(CreateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')\nclass CinemaUpdateView(UpdateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')",
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaUpdateView",
+        "kind": 6,
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "peekOfCode": "class CinemaUpdateView(UpdateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')\nclass CinemaDeleteView(DeleteView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_confirm_delete.html'\n    success_url = reverse_lazy('cinema_list')",
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "CinemaDeleteView",
+        "kind": 6,
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "peekOfCode": "class CinemaDeleteView(DeleteView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_confirm_delete.html'\n    success_url = reverse_lazy('cinema_list')",
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "CoreConfig",
+        "kind": 6,
+        "importPath": "core.apps",
+        "description": "core.apps",
+        "peekOfCode": "class CoreConfig(AppConfig):\n    name = 'core'",
+        "detail": "core.apps",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "kind": 6,
+        "importPath": "core.models",
+        "description": "core.models",
+        "peekOfCode": "class BaseModel(models.Model):\n    \"\"\"Classe abstraite pour uniformiser l'usage des UUID\"\"\"\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        abstract = True",
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "core.urls",
+        "description": "core.urls",
+        "peekOfCode": "urlpatterns = [\n    path('', DashboardView.as_view(), name='dashbord'),\n]",
+        "detail": "core.urls",
+        "documentation": {}
+    },
+    {
+        "label": "DashboardView",
+        "kind": 6,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "class DashboardView(TemplateView):\n    template_name = 'dashboard/dashboard.html'\n    def get_context_data(self, **kwargs):\n        context = super(DashboardView, self).get_context_data(**kwargs)\n        context['total_films'] = Film.objects.count()\n        context['total_salles'] = Salle.objects.count()\n        # Donnée victives\n        context['revenu_total'] = \"42 850\"\n        context['taux_occupation'] = 78.5\n        context['reservations'] = Reservation.objects.select_related('client', 'film').order_by('-created_at')[:5]",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "film_manager.migrations.0001_initial",
+        "description": "film_manager.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Film',\n            fields=[\n                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),\n                ('created_at', models.DateTimeField(auto_now_add=True)),",
+        "detail": "film_manager.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "FilmAdmin",
+        "kind": 6,
+        "importPath": "film_manager.admin",
+        "description": "film_manager.admin",
+        "peekOfCode": "class FilmAdmin(admin.ModelAdmin):\n pass",
+        "detail": "film_manager.admin",
+        "documentation": {}
+    },
+    {
+        "label": "FilmManagerConfig",
+        "kind": 6,
+        "importPath": "film_manager.apps",
+        "description": "film_manager.apps",
+        "peekOfCode": "class FilmManagerConfig(AppConfig):\n    name = 'film_manager'",
+        "detail": "film_manager.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Film",
+        "kind": 6,
+        "importPath": "film_manager.models",
+        "description": "film_manager.models",
+        "peekOfCode": "class Film(BaseModel):\n    titre = models.CharField(max_length=255)\n    duree = models.PositiveIntegerField(help_text=\"Durée en minutes\")\n    genre = models.CharField(max_length=255)\n    realisateur = models.CharField(max_length=255)\n    synopsis = models.TextField()\n    affiche = models.ImageField(upload_to='media/films/', null=True, blank=True)\n    @property\n    def duree_formatee(self):\n        heures = self.duree // 60",
+        "detail": "film_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "film_manager.urls",
+        "description": "film_manager.urls",
+        "peekOfCode": "urlpatterns = [\n    path('create/', FilmCreateView.as_view(), name='film_create'),\n    path('list/', FilmListView.as_view(), name=\"film_list\"),\n    path('detail/<uuid:pk>/', FilmDetailView.as_view(), name='film_detail'),\n    path('delete/<uuid:pk>', FilmDeleteView.as_view(), name='film_delete'),\n    path('edit/<uuid:pk>', FilmUpdateView.as_view(), name='film_update'),\n]",
+        "detail": "film_manager.urls",
+        "documentation": {}
+    },
+    {
+        "label": "FilmCreateView",
+        "kind": 6,
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "peekOfCode": "class FilmCreateView(CreateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"synopsis\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'\n    success_url = reverse_lazy('film_list')\nclass FilmListView(ListView):\n    model = Film\n    fields = [\"id\",\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/films_list.html'\n    context_object_name = 'films'",
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "FilmListView",
+        "kind": 6,
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "peekOfCode": "class FilmListView(ListView):\n    model = Film\n    fields = [\"id\",\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/films_list.html'\n    context_object_name = 'films'\n    paginate_by = 5\nclass FilmUpdateView(UpdateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'",
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "FilmUpdateView",
+        "kind": 6,
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "peekOfCode": "class FilmUpdateView(UpdateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'\n    success_url = reverse_lazy('film_list')\nclass FilmDeleteView(DeleteView):\n    model = Film\n    template_name = 'dashboard/films/film_confirm_delete.html'\n    success_url = reverse_lazy('film_list')\n    def get(self, request, *args, **kwargs):",
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "FilmDeleteView",
+        "kind": 6,
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "peekOfCode": "class FilmDeleteView(DeleteView):\n    model = Film\n    template_name = 'dashboard/films/film_confirm_delete.html'\n    success_url = reverse_lazy('film_list')\n    def get(self, request, *args, **kwargs):\n        return self.post(request,*args, **kwargs)\nclass FilmDetailView(DetailView):\n    model = Film\n    template_name = 'client/film_detail.html'\n    context_object_name = 'film'",
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "FilmDetailView",
+        "kind": 6,
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "peekOfCode": "class FilmDetailView(DetailView):\n    model = Film\n    template_name = 'client/film_detail.html'\n    context_object_name = 'film'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        context['seances'] = self.object.seances.order_by('date_heure')\n        return context",
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "reservation_manager.migrations.0001_initial",
+        "description": "reservation_manager.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('account', '0001_initial'),\n        ('seance_manager', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Reservation',\n            fields=[",
+        "detail": "reservation_manager.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "ReservationAdmin",
+        "kind": 6,
+        "importPath": "reservation_manager.admin",
+        "description": "reservation_manager.admin",
+        "peekOfCode": "class ReservationAdmin(admin.ModelAdmin):\n    pass",
+        "detail": "reservation_manager.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ReservationManagerConfig",
+        "kind": 6,
+        "importPath": "reservation_manager.apps",
+        "description": "reservation_manager.apps",
+        "peekOfCode": "class ReservationManagerConfig(AppConfig):\n    name = 'reservation_manager'",
+        "detail": "reservation_manager.apps",
+        "documentation": {}
+    },
+    {
+        "label": "ClientReservationCreateView",
+        "kind": 6,
+        "importPath": "reservation_manager.client_views",
+        "description": "reservation_manager.client_views",
+        "peekOfCode": "class ClientReservationCreateView(FormView):\n    template_name = 'client/reservation_form.html'\n    form_class = ReservationForm\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        seance_id = self.kwargs.get('seance_id')\n        context['seance'] = get_object_or_404(Seance, pk=seance_id)\n        return context\n    def form_valid(self, form):\n        seance_id = self.kwargs.get('seance_id')",
+        "detail": "reservation_manager.client_views",
+        "documentation": {}
+    },
+    {
+        "label": "ReservationForm",
+        "kind": 6,
+        "importPath": "reservation_manager.forms",
+        "description": "reservation_manager.forms",
+        "peekOfCode": "class ReservationForm(forms.Form):\n    nom = forms.CharField(max_length=100, label=\"Nom\")\n    prenom = forms.CharField(max_length=100, label=\"Prénom\")\n    email = forms.EmailField(label=\"Email\")\n    telephone = forms.CharField(max_length=20, label=\"Téléphone\")\n    nb_places = forms.IntegerField(min_value=1, label=\"Nombre de places\")",
+        "detail": "reservation_manager.forms",
+        "documentation": {}
+    },
+    {
+        "label": "Reservation",
+        "kind": 6,
+        "importPath": "reservation_manager.models",
+        "description": "reservation_manager.models",
+        "peekOfCode": "class Reservation(BaseModel):\n    client = models.ForeignKey('account.Client', on_delete=models.CASCADE, related_name='reservations')\n    seance = models.ForeignKey('seance_manager.Seance', on_delete=models.CASCADE, related_name='reservations')\n    date_reservation = models.DateTimeField(auto_now_add=True)\n    nb_places = models.PositiveIntegerField(validators=[MinValueValidator(1)])\n    @property\n    def total_prix(self):\n        return self.nb_places * self.seance.prix\n    def __str__(self):\n        return f\"Réservation {self.id} - {self.client.nom}\"",
+        "detail": "reservation_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "reservation_manager.urls",
+        "description": "reservation_manager.urls",
+        "peekOfCode": "urlpatterns = [\n    path('list/', ReservationListView.as_view(), name='reservation_list'),\n    path('detail/<uuid:pk>/', ReservationDetailView.as_view(), name='reservation_detail'),\n    path('create/<uuid:seance_id>/', ClientReservationCreateView.as_view(), name='reservation_create'),\n]",
+        "detail": "reservation_manager.urls",
+        "documentation": {}
+    },
+    {
+        "label": "ReservationListView",
+        "kind": 6,
+        "importPath": "reservation_manager.views",
+        "description": "reservation_manager.views",
+        "peekOfCode": "class ReservationListView(ListView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_list.html'\n    context_object_name = 'reservations'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass ReservationDetailView(DetailView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_detail.html'\n    context_object_name = 'reservation'",
+        "detail": "reservation_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "ReservationDetailView",
+        "kind": 6,
+        "importPath": "reservation_manager.views",
+        "description": "reservation_manager.views",
+        "peekOfCode": "class ReservationDetailView(DetailView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_detail.html'\n    context_object_name = 'reservation'",
+        "detail": "reservation_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "salle_manager.migrations.0001_initial",
+        "description": "salle_manager.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('cinema_manager', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Salle',\n            fields=[\n                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),",
+        "detail": "salle_manager.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "SalleAdmin",
+        "kind": 6,
+        "importPath": "salle_manager.admin",
+        "description": "salle_manager.admin",
+        "peekOfCode": "class SalleAdmin(admin.ModelAdmin):\n    pass",
+        "detail": "salle_manager.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SalleManagerConfig",
+        "kind": 6,
+        "importPath": "salle_manager.apps",
+        "description": "salle_manager.apps",
+        "peekOfCode": "class SalleManagerConfig(AppConfig):\n    name = 'salle_manager'",
+        "detail": "salle_manager.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Salle",
+        "kind": 6,
+        "importPath": "salle_manager.models",
+        "description": "salle_manager.models",
+        "peekOfCode": "class Salle(BaseModel):\n    TYPE_ECRAN_CHOICES = [\n        ('STD', 'Standard'),\n        ('IMAX', 'IMAX'),\n        ('3D', 'Real 3D'),\n        ('4DX', '4DX'),\n    ]\n    cinema = models.ForeignKey('cinema_manager.Cinema', on_delete=models.CASCADE, related_name='cinemas')\n    numero = models.PositiveIntegerField()\n    capacite = models.PositiveIntegerField()",
+        "detail": "salle_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "salle_manager.urls",
+        "description": "salle_manager.urls",
+        "peekOfCode": "urlpatterns = [\n    path('list/', SalleListView.as_view(), name='salle_list'),\n    path('create/', SalleCreateView.as_view(), name='salle_create'),\n    path('edit/<uuid:pk>/', SalleUpdateView.as_view(), name='salle_update'),\n    path('delete/<uuid:pk>/', SalleDeleteView.as_view(), name='salle_delete'),\n]",
+        "detail": "salle_manager.urls",
+        "documentation": {}
+    },
+    {
+        "label": "SalleListView",
+        "kind": 6,
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "peekOfCode": "class SalleListView(ListView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_list.html'\n    context_object_name = 'salles'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass SalleCreateView(CreateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'",
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SalleCreateView",
+        "kind": 6,
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "peekOfCode": "class SalleCreateView(CreateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')\nclass SalleUpdateView(UpdateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')",
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SalleUpdateView",
+        "kind": 6,
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "peekOfCode": "class SalleUpdateView(UpdateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')\nclass SalleDeleteView(DeleteView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_confirm_delete.html'\n    success_url = reverse_lazy('salle_list')",
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SalleDeleteView",
+        "kind": 6,
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "peekOfCode": "class SalleDeleteView(DeleteView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_confirm_delete.html'\n    success_url = reverse_lazy('salle_list')",
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "seance_manager.migrations.0001_initial",
+        "description": "seance_manager.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('film_manager', '0001_initial'),\n        ('salle_manager', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Seance',\n            fields=[",
+        "detail": "seance_manager.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceAdmin",
+        "kind": 6,
+        "importPath": "seance_manager.admin",
+        "description": "seance_manager.admin",
+        "peekOfCode": "class SeanceAdmin(admin.ModelAdmin):\n    pass",
+        "detail": "seance_manager.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceManagerConfig",
+        "kind": 6,
+        "importPath": "seance_manager.apps",
+        "description": "seance_manager.apps",
+        "peekOfCode": "class SeanceManagerConfig(AppConfig):\n    name = 'seance_manager'",
+        "detail": "seance_manager.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Seance",
+        "kind": 6,
+        "importPath": "seance_manager.models",
+        "description": "seance_manager.models",
+        "peekOfCode": "class Seance(BaseModel):\n    film = models.ForeignKey('film_manager.Film', on_delete=models.CASCADE, related_name='seances')\n    salle = models.ForeignKey('salle_manager.Salle', on_delete=models.CASCADE, related_name='seances')\n    date_heure = models.DateTimeField()\n    prix = models.DecimalField(max_digits=6, decimal_places=2)\n    def __str__(self):\n        return f\"{self.film.tire} @ {self.date_heure.strftime('%d/%m %H:%M')}\"",
+        "detail": "seance_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "seance_manager.urls",
+        "description": "seance_manager.urls",
+        "peekOfCode": "urlpatterns = [\n    path('list/', SeanceListView.as_view(), name='seance_list'),\n    path('create/', SeanceCreateView.as_view(), name='seance_create'),\n    path('edit/<uuid:pk>/', SeanceUpdateView.as_view(), name='seance_update'),\n    path('delete/<uuid:pk>/', SeanceDeleteView.as_view(), name='seance_delete'),\n]",
+        "detail": "seance_manager.urls",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceListView",
+        "kind": 6,
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "peekOfCode": "class SeanceListView(ListView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_list.html'\n    context_object_name = 'seances'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass SeanceCreateView(CreateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'",
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceCreateView",
+        "kind": 6,
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "peekOfCode": "class SeanceCreateView(CreateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')\nclass SeanceUpdateView(UpdateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')",
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceUpdateView",
+        "kind": 6,
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "peekOfCode": "class SeanceUpdateView(UpdateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')\nclass SeanceDeleteView(DeleteView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_confirm_delete.html'\n    success_url = reverse_lazy('seance_list')",
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "SeanceDeleteView",
+        "kind": 6,
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "peekOfCode": "class SeanceDeleteView(DeleteView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_confirm_delete.html'\n    success_url = reverse_lazy('seance_list')",
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "ThemeConfig",
+        "kind": 6,
+        "importPath": "theme.apps",
+        "description": "theme.apps",
+        "peekOfCode": "class ThemeConfig(AppConfig):\n    name = 'theme'",
+        "detail": "theme.apps",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CineLuxe.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]

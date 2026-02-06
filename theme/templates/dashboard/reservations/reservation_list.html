@@ -1,452 +1,65 @@
-<!DOCTYPE html>
-<html class="dark" lang="fr">
+{% extends 'admin_base.html' %}
 
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Gestion des Réservations CinéLuxe</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ff4d00",
-                        "background-light": "#f8f6f5",
-                        "background-dark": "#0a0a0a",
-                        "surface-dark": "#171717",
-                        "border-dark": "#262626",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-    <style type="text/tailwindcss">
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
-</head>
-
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
-    <div class="flex h-screen overflow-hidden">
-        <aside
-            class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col justify-between py-6">
-            <div class="flex flex-col gap-8 px-4">
-                <div class="flex items-center gap-3 px-2">
-                    <div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
-                        <span class="material-symbols-outlined">movie</span>
-                    </div>
-                    <div>
-                        <h1 class="text-lg font-bold leading-none tracking-tight">CinéLuxe</h1>
-                        <p class="text-xs text-slate-500 dark:text-zinc-500 font-medium">Admin Cinéma de Luxe</p>
-                    </div>
-                </div>
-                <nav class="flex flex-col gap-1">
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">dashboard</span>
-                        <span class="text-sm font-medium">Tableau de bord</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">door_open</span>
-                        <span class="text-sm font-medium">Salles</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">movie_filter</span>
-                        <span class="text-sm font-medium">Films</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">confirmation_number</span>
-                        <span class="text-sm font-semibold">Réservations</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">analytics</span>
-                        <span class="text-sm font-medium">Analyses</span>
-                    </a>
-                </nav>
-            </div>
-            <div class="flex flex-col gap-4 px-4">
-                <button
-                    class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2.5 rounded-lg transition-all shadow-lg shadow-primary/20">
-                    <span class="material-symbols-outlined text-[20px]">add</span>
-                    <span>Nouvelle Réservation</span>
-                </button>
-                <div class="pt-4 border-t border-slate-200 dark:border-border-dark flex flex-col gap-1">
-                    <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-primary transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">settings</span>
-                        <span class="text-sm font-medium">Paramètres</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-red-500 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">logout</span>
-                        <span class="text-sm font-medium">Déconnexion</span>
-                    </a>
-                </div>
-            </div>
-        </aside>
-        <main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
-            <header
-                class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
-                <div class="flex items-center gap-6 flex-1">
-                    <div class="relative w-full max-w-md">
-                        <span
-                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500 text-[20px]">search</span>
-                        <input
-                            class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:zinc-600 text-slate-900 dark:text-zinc-200"
-                            placeholder="Rechercher une réservation, client..." type="text" />
-                    </div>
-                </div>
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-2 mr-4">
-                        <button
-                            class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-primary transition-colors">
-                            <span class="material-symbols-outlined">notifications</span>
-                        </button>
-                    </div>
-                    <div class="flex items-center gap-3 border-l border-slate-200 dark:border-border-dark pl-4">
-                        <div class="text-right hidden sm:block">
-                            <p class="text-sm font-bold leading-none">Julian Vance</p>
-                            <p class="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">Directeur Général</p>
-                        </div>
-                        <div class="size-10 rounded-full border-2 border-primary/20 bg-center bg-no-repeat bg-cover"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCowv4uTeA3xfota7gffoDjcjH11VmyxIwropUxPQTN0aA63Btr2Y8vu94uR2GSvdpKIM-Zf2Ah9h5bPNzdpXNkC3AaGr80uc-szNyMqvuxJzE-5L9ihQ1OFT1YO88bxaRnJNvFAL0ja6TM1PnDaQC8peWdFe7tleaJvheZOQ9v2ltKt9Ql0lVUx3gSnCHU_h1VRbXYqzU7ytg9xTjJLEwUmNHHi2OIeMOUgD3T9HEpxYRyzvp2tzCzFLZTyyQzLoUt_zzDxOgI9uXz');">
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <div class="p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-8">
-                <div class="flex flex-wrap items-end justify-between gap-4">
-                    <div class="space-y-1">
-                        <h2 class="text-3xl font-black tracking-tight">Gestion des Réservations</h2>
-                        <p class="text-slate-500 dark:text-zinc-400">Gérez les réservations clients et le statut des
-                            paiements en temps réel.</p>
-                    </div>
-                    <div class="flex gap-3">
-                        <button
-                            class="px-4 py-2 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-sm font-semibold hover:bg-slate-50 transition-colors flex items-center gap-2">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Exporter (CSV)
-                        </button>
-                    </div>
-                </div>
-                <div
-                    class="p-5 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark">
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <div class="flex flex-col gap-1.5">
-                            <label
-                                class="text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">Période</label>
-                            <select
-                                class="bg-slate-50 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-1 focus:ring-primary text-slate-700 dark:text-zinc-200">
-                                <option>Aujourd'hui</option>
-                                <option>7 derniers jours</option>
-                                <option>30 derniers jours</option>
-                                <option>Plage personnalisée</option>
-                            </select>
-                        </div>
-                        <div class="flex flex-col gap-1.5">
-                            <label
-                                class="text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">Film</label>
-                            <select
-                                class="bg-slate-50 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-1 focus:ring-primary text-slate-700 dark:text-zinc-200">
-                                <option>Tous les films</option>
-                                <option>Interstellar: Spécial IMAX</option>
-                                <option>Dune: Deuxième Partie</option>
-                                <option>Oppenheimer</option>
-                            </select>
-                        </div>
-                        <div class="flex flex-col gap-1.5">
-                            <label
-                                class="text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">Statut
-                                de Paiement</label>
-                            <select
-                                class="bg-slate-50 dark:bg-zinc-800/50 border-none rounded-lg text-sm focus:ring-1 focus:ring-primary text-slate-700 dark:text-zinc-200">
-                                <option>Tous les statuts</option>
-                                <option>Payé</option>
-                                <option>En attente</option>
-                                <option>Annulé</option>
-                            </select>
-                        </div>
-                        <div class="flex items-end">
-                            <button
-                                class="w-full bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-200 text-sm font-bold py-2 rounded-lg transition-colors">
-                                Réinitialiser les filtres
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark overflow-hidden shadow-sm">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left">
-                            <thead
-                                class="bg-slate-50 dark:bg-zinc-800/50 text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">
-                                <tr>
-                                    <th class="px-6 py-4">ID Rés.</th>
-                                    <th class="px-6 py-4">Client</th>
-                                    <th class="px-6 py-4">Film</th>
-                                    <th class="px-6 py-4">Séance</th>
-                                    <th class="px-6 py-4 text-center">Salle</th>
-                                    <th class="px-6 py-4 text-center">Sièges</th>
-                                    <th class="px-6 py-4">Prix Total</th>
-                                    <th class="px-6 py-4">Statut</th>
-                                    <th class="px-6 py-4 text-right">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100 dark:divide-zinc-800">
-                                <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
-                                    <td class="px-6 py-4 text-xs font-mono text-slate-400">#RES-8821</td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center gap-3">
-                                            <div
-                                                class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
-                                                AM</div>
-                                            <span class="text-sm font-semibold whitespace-nowrap">Alexander
-                                                Murphy</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="text-sm font-medium">Interstellar: IMAX</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-sm">
-                                            <p class="font-medium">Aujourd'hui</p>
-                                            <p class="text-[11px] text-slate-500">19:45</p>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <span
-                                            class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">R2</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-sm font-medium">
-                                        B12, B13
-                                    </td>
-                                    <td class="px-6 py-4 font-bold text-sm">45,00 €</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500">Payé</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex items-center justify-end gap-2">
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-primary"
-                                                title="Détails">
-                                                <span class="material-symbols-outlined text-lg">visibility</span>
-                                            </button>
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-blue-500"
-                                                title="Modifier">
-                                                <span class="material-symbols-outlined text-lg">edit</span>
-                                            </button>
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-red-500"
-                                                title="Annuler">
-                                                <span class="material-symbols-outlined text-lg">close</span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
-                                    <td class="px-6 py-4 text-xs font-mono text-slate-400">#RES-8822</td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center gap-3">
-                                            <div
-                                                class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
-                                                SL</div>
-                                            <span class="text-sm font-semibold whitespace-nowrap">Sophia Laurent</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="text-sm font-medium">Dune: Partie II</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-sm">
-                                            <p class="font-medium">Aujourd'hui</p>
-                                            <p class="text-[11px] text-slate-500">21:15</p>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <span
-                                            class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">R6</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-sm font-medium">
-                                        VIP-01, VIP-02
-                                    </td>
-                                    <td class="px-6 py-4 font-bold text-sm">62,50 €</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/10 text-amber-500">En
-                                            attente</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex items-center justify-end gap-2">
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-primary"
-                                                title="Détails">
-                                                <span class="material-symbols-outlined text-lg">visibility</span>
-                                            </button>
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-blue-500"
-                                                title="Modifier">
-                                                <span class="material-symbols-outlined text-lg">edit</span>
-                                            </button>
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-red-500"
-                                                title="Annuler">
-                                                <span class="material-symbols-outlined text-lg">close</span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
-                                    <td class="px-6 py-4 text-xs font-mono text-slate-400">#RES-8823</td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center gap-3">
-                                            <div
-                                                class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
-                                                MK</div>
-                                            <span class="text-sm font-semibold whitespace-nowrap">Marcus Knight</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="text-sm font-medium">Le Parrain</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-sm">
-                                            <p class="font-medium">Demain</p>
-                                            <p class="text-[11px] text-slate-500">18:00</p>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <span
-                                            class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">R4</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-sm font-medium">
-                                        C05
-                                    </td>
-                                    <td class="px-6 py-4 font-bold text-sm">28,00 €</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500">Payé</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex items-center justify-end gap-2">
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-primary"
-                                                title="Détails">
-                                                <span class="material-symbols-outlined text-lg">visibility</span>
-                                            </button>
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-blue-500"
-                                                title="Modifier">
-                                                <span class="material-symbols-outlined text-lg">edit</span>
-                                            </button>
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-red-500"
-                                                title="Annuler">
-                                                <span class="material-symbols-outlined text-lg">close</span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors opacity-60">
-                                    <td class="px-6 py-4 text-xs font-mono text-slate-400">#RES-8824</td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center gap-3">
-                                            <div
-                                                class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
-                                                EW</div>
-                                            <span class="text-sm font-semibold whitespace-nowrap">Emma Wright</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="text-sm font-medium">Oppenheimer</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-sm">
-                                            <p class="font-medium">25 Oct</p>
-                                            <p class="text-[11px] text-slate-500">20:30</p>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <span
-                                            class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">R1</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-sm font-medium">
-                                        A01, A02
-                                    </td>
-                                    <td class="px-6 py-4 font-bold text-sm">0,00 €</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-red-500/10 text-red-500">Annulé</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex items-center justify-end gap-2">
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 hover:text-primary"
-                                                title="Détails">
-                                                <span class="material-symbols-outlined text-lg">visibility</span>
-                                            </button>
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 cursor-not-allowed opacity-50"
-                                                disabled="">
-                                                <span class="material-symbols-outlined text-lg">edit</span>
-                                            </button>
-                                            <button
-                                                class="p-1.5 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded transition-colors text-slate-400 cursor-not-allowed opacity-50"
-                                                disabled="">
-                                                <span class="material-symbols-outlined text-lg">close</span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div
-                        class="px-6 py-4 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between">
-                        <p class="text-xs text-slate-500 dark:text-zinc-500">Affichage de <span
-                                class="font-bold text-slate-900 dark:text-zinc-200">1-4</span> sur <span
-                                class="font-bold text-slate-900 dark:text-zinc-200">1,240</span> réservations</p>
-                        <div class="flex gap-2">
-                            <button
-                                class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-700 text-xs font-bold hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors">Précédent</button>
-                            <button
-                                class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-700 text-xs font-bold hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors bg-primary/10 text-primary border-primary/20">1</button>
-                            <button
-                                class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-700 text-xs font-bold hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors">2</button>
-                            <button
-                                class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-700 text-xs font-bold hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors">Suivant</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+{% block content %}
+<div class="flex flex-wrap items-end justify-between gap-4">
+    <div class="space-y-1">
+        <h2 class="text-3xl font-black tracking-tight">Réservations</h2>
+        <p class="text-slate-500 dark:text-zinc-400">Suivi des commandes clients.</p>
     </div>
+</div>
 
-</body>
-
-</html>
+<div class="rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left">
+            <thead
+                class="bg-slate-50 dark:bg-zinc-800/50 text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">
+                <tr>
+                    <th class="px-6 py-4">Client</th>
+                    <th class="px-6 py-4">Film & Séance</th>
+                    <th class="px-6 py-4">Nb Places</th>
+                    <th class="px-6 py-4">Total</th>
+                    <th class="px-6 py-4 text-right">Détails</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-zinc-800">
+                {% for res in reservations %}
+                <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
+                                {{ res.client.nom|slice:":1" }}{{ res.client.prenom|slice:":1" }}
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold">{{ res.client.nom }} {{ res.client.prenom }}</div>
+                                <div class="text-xs text-slate-400">{{ res.date_reservation|date:"d/m H:i" }}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="text-sm font-medium">{{ res.seance.film.titre }}</span>
+                        <div class="text-xs text-slate-500 dark:text-zinc-500">
+                            {{ res.seance.date_heure|date:"d/m H:i" }} - {{ res.seance.salle.cinema.nom }}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">{{ res.nb_places }}</td>
+                    <td class="px-6 py-4 font-bold text-emerald-500">{{ res.total_prix }} €</td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="{% url 'reservation_detail' res.pk %}"
+                            class="text-sm font-bold text-primary hover:underline">
+                            Voir
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="px-6 py-8 text-center text-slate-500 dark:text-zinc-500">
+                        Aucune réservation enregistrée.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

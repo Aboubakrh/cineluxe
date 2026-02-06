@@ -1,9 +1,12 @@
 from django.db import models
 
 # Create your models here.
-class Film(models.Model):
-    tire = models.CharField(max_length=255)
-    duree = models.PositiveIntegerField(help_text="Durée en munites")
+
+from core.models import BaseModel
+
+class Film(BaseModel):
+    titre = models.CharField(max_length=255)
+    duree = models.PositiveIntegerField(help_text="Durée en minutes")
     genre = models.CharField(max_length=255)
     realisateur = models.CharField(max_length=255)
     synopsis = models.TextField()
@@ -16,4 +19,4 @@ class Film(models.Model):
         return f"{heures}h {minutes:02d}m"
 
     def __str__(self):
-        return self.tire
+        return self.titre

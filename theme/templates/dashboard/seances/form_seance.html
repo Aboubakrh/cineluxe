@@ -1,0 +1,87 @@
+{% extends 'admin_base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} {% if object %}Modifier Séance{% else %}Ajouter Séance{% endif %} {% endblock %}
+
+{% block content %}
+<main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
+    <header
+        class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
+        <div class="flex items-center gap-4">
+            <a class="flex items-center gap-2 text-slate-500 dark:text-zinc-400 hover:text-primary transition-colors"
+                href="{% url 'seance_list' %}">
+                <span class="material-symbols-outlined">arrow_back</span>
+                <span class="text-sm font-medium">Retour aux séances</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="p-8 max-w-[800px] w-full mx-auto flex flex-col gap-8">
+        <div class="space-y-1">
+            <h2 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">{% if object %}Modifier la
+                Séance{% else %}Programmer une Séance{% endif %}</h2>
+            <p class="text-slate-500 dark:text-zinc-400 font-medium">Gestion du planning des projections.</p>
+        </div>
+
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+
+            <div
+                class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark space-y-6 shadow-sm">
+
+                <!-- Film -->
+                <div class="space-y-2">
+                    <label for="id_film" class="text-sm font-bold text-slate-700 dark:text-zinc-300">Film</label>
+                    {{ form.film|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700
+                    rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary
+                    transition-all text-slate-900 dark:text-zinc-100" }}
+                    {{ form.film.errors }}
+                </div>
+
+                <!-- Salle -->
+                <div class="space-y-2">
+                    <label for="id_salle" class="text-sm font-bold text-slate-700 dark:text-zinc-300">Salle</label>
+                    {{ form.salle|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200
+                    dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20
+                    focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
+                    {{ form.salle.errors }}
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Date et Heure -->
+                    <div class="space-y-2">
+                        <label for="id_date_heure" class="text-sm font-bold text-slate-700 dark:text-zinc-300">Date et
+                            Heure</label>
+                        {{ form.date_heure|attr:"type:datetime-local"|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50
+                        border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2
+                        focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
+                        {{ form.date_heure.errors }}
+                    </div>
+
+                    <!-- Prix -->
+                    <div class="space-y-2">
+                        <label for="id_prix" class="text-sm font-bold text-slate-700 dark:text-zinc-300">Prix
+                            (€)</label>
+                        {{ form.prix|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200
+                        dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20
+                        focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
+                        {{ form.prix.errors }}
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Boutons -->
+            <div class="flex items-center justify-end gap-4 pt-4">
+                <a href="{% url 'seance_list' %}"
+                    class="px-6 py-2.5 rounded-lg border border-slate-200 dark:border-zinc-700 text-sm font-bold hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors">Annuler</a>
+                <button
+                    class="px-8 py-2.5 rounded-lg bg-primary text-white text-sm font-black shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all"
+                    type="submit">
+                    {% if object %}Enregistrer{% else %}Confirmer la Séance{% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}

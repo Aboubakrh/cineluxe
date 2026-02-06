@@ -2,7 +2,7 @@
 {% load static tailwind_tags %}
 
 
-<title>{% block title  %} Accueil {% endblock %}</title>
+<title>{% block title %} Accueil {% endblock %}</title>
 
 {% block content %}
 <section class="relative w-full h-[85vh] @container">
@@ -98,21 +98,20 @@
                 {% if film.affiche %}
                 <img alt="{{ film.tire }}"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    src="{{ film.affiche }}" /> {% endif %}
+                    src="{{ film.affiche.url }}" /> {% endif %}
                 <div
                     class="absolute top-3 right-3 glass-effect px-2 py-1 rounded text-[11px] font-bold border border-white/20">
                     {{film.duree_formatee}}
                 </div>
                 <div
                     class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button
+                    <a href="{% url 'film_detail' film.pk %}"
                         class="bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl scale-90 group-hover:scale-100 transition-transform">
                         <span class="material-symbols-outlined text-[32px]">play_arrow</span>
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="space-y-1">
-                <h3 class="text-lg font-bold group-hover:text-primary transition-colors">Oppenheimer</h3>
                 <div class="flex items-center gap-2 text-xs text-gray-400 font-medium">
                     <span>{{ film.genre }}</span>
                     <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
@@ -121,84 +120,6 @@
             </div>
         </div>
         {% endfor %}
-        <div class="group relative flex flex-col gap-4">
-            <div class="relative aspect-[2/3] overflow-hidden rounded-xl border border-white/10">
-                <img alt="Affiche du film The Batman"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhts4V_6KvIJmOEOBQt3prGQxbxkK4CYQ4OUlpK84oJb5I--PjjLPIjuyWkTpo0yewpiCbcvRA0hCsywJbKMVFvoQQB588rj17vCgB5pB1jNrsyiBcIJhodw0jn3irPLBJUKYbug5Ku03nDzx5GNz6R6bB0BWyt40-Ao0Tkvihe6KB5U55PTi2COf_vQ8QaGee9odn2pxBz2K7ml8lf4slyz1UVJuxqHO8EsGgLimvD0uLCqnpTF-DiFFPYc6nGgfYKIlASuqC5bnj" />
-                <div
-                    class="absolute top-3 right-3 glass-effect px-2 py-1 rounded text-[11px] font-bold border border-white/20">
-                    2h 56m
-                </div>
-                <div
-                    class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button
-                        class="bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl scale-90 group-hover:scale-100 transition-transform">
-                        <span class="material-symbols-outlined text-[32px]">play_arrow</span>
-                    </button>
-                </div>
-            </div>
-            <div class="space-y-1">
-                <h3 class="text-lg font-bold group-hover:text-primary transition-colors">The Batman</h3>
-                <div class="flex items-center gap-2 text-xs text-gray-400 font-medium">
-                    <span>Action</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>Policier</span>
-                </div>
-            </div>
-        </div>
-        <div class="group relative flex flex-col gap-4">
-            <div class="relative aspect-[2/3] overflow-hidden rounded-xl border border-white/10">
-                <img alt="Affiche du film Interstellar"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI_4bt9nNyq17qtWgQv1VuDNhOtSq0Og-Rf86ACzB6-SvA4p63EQPDx4kMZGLG_YRDhDAyGY8Hnm_TIC0GxHvnrZ4hMbGoE7WH1AJyoqvaj1MW-mRBSq2yaR4nUlMu4ha_VOMPES_KXcNBUazxvF6lfLNt2NuXkRCpW2VkBhXULbSNCzcBP-tdOUkrRd_Yrbjaavw8MHOZBU5Rc_oMWHy97XjMyEHnnkuoKe7UzVjDErzkhpIAHWu1xAaWvmKTAcgmEbF-gPsIrVJx" />
-                <div
-                    class="absolute top-3 right-3 glass-effect px-2 py-1 rounded text-[11px] font-bold border border-white/20">
-                    2h 49m
-                </div>
-                <div
-                    class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button
-                        class="bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl scale-90 group-hover:scale-100 transition-transform">
-                        <span class="material-symbols-outlined text-[32px]">play_arrow</span>
-                    </button>
-                </div>
-            </div>
-            <div class="space-y-1">
-                <h3 class="text-lg font-bold group-hover:text-primary transition-colors">Interstellar</h3>
-                <div class="flex items-center gap-2 text-xs text-gray-400 font-medium">
-                    <span>S-F</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>Reprise IMAX</span>
-                </div>
-            </div>
-        </div>
-        <div class="group relative flex flex-col gap-4">
-            <div class="relative aspect-[2/3] overflow-hidden rounded-xl border border-white/10">
-                <img alt="Affiche du film John Wick 4"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeaom7jZVmrSS1-FaapE0PHPUzymeWtS82BKxPVFTeN-CwyhkMGKTreMdpY9uBPvOw0zKsZJGINwpYLQsvkPAqAyrYfVWPQANQELVF5dfl0QN5qJdc3jd1qfCl_f4QfBCleEmxIPh_a8MzdmfwZrHUXLDDpsUIvZaemJSqEWXU_FwAje6vJZ31fhbUjgq3J1rlVj0GmeoTvEthN4AVnJODMGPqk1TTpTTHwGH-fJSulDyCpaFjWtIzlKxsqgcsxiiWdKszm_JqMzA1" />
-                <div
-                    class="absolute top-3 right-3 glass-effect px-2 py-1 rounded text-[11px] font-bold border border-white/20">
-                    2h 49m
-                </div>
-                <div
-                    class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button
-                        class="bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl scale-90 group-hover:scale-100 transition-transform">
-                        <span class="material-symbols-outlined text-[32px]">play_arrow</span>
-                    </button>
-                </div>
-            </div>
-            <div class="space-y-1">
-                <h3 class="text-lg font-bold group-hover:text-primary transition-colors">John Wick: Chapitre 4</h3>
-                <div class="flex items-center gap-2 text-xs text-gray-400 font-medium">
-                    <span>Action</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>Thriller</span>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 <section class="max-w-7xl mx-auto px-6 pb-24">

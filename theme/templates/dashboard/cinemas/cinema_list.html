@@ -1,0 +1,60 @@
+{% extends 'admin_base.html' %}
+
+{% block content %}
+<div class="flex flex-wrap items-end justify-between gap-4">
+    <div class="space-y-1">
+        <h2 class="text-3xl font-black tracking-tight">Cinémas</h2>
+        <p class="text-slate-500 dark:text-zinc-400">Gérez votre parc de cinémas.</p>
+    </div>
+    <div class="flex gap-3">
+        <a href="{% url 'cinema_create' %}"
+            class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2">
+            <span class="material-symbols-outlined">add</span>
+            Nouveau Cinéma
+        </a>
+    </div>
+</div>
+
+<div class="rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left">
+            <thead
+                class="bg-slate-50 dark:bg-zinc-800/50 text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">
+                <tr>
+                    <th class="px-6 py-4">Nom</th>
+                    <th class="px-6 py-4">Ville</th>
+                    <th class="px-6 py-4">Adresse</th>
+                    <th class="px-6 py-4 text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-zinc-800">
+                {% for cinema in cinemas %}
+                <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
+                    <td class="px-6 py-4 font-bold text-slate-700 dark:text-zinc-200">{{ cinema.nom }}</td>
+                    <td class="px-6 py-4 text-sm font-medium">{{ cinema.ville }}</td>
+                    <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">{{ cinema.adresse }}</td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex items-center justify-end gap-2">
+                            <a href="{% url 'cinema_update' cinema.pk %}"
+                                class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-400 hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">edit</span>
+                            </a>
+                            <a href="{% url 'cinema_delete' cinema.pk %}"
+                                class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-400 hover:text-red-500 transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">delete</span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="px-6 py-8 text-center text-slate-500 dark:text-zinc-500">
+                        Aucun cinéma trouvé. Commencez par en ajouter un.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

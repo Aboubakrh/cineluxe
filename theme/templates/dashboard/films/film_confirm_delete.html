@@ -1,0 +1,41 @@
+{% extends 'admin_base.html' %}
+
+{% block title %} Confirmer la suppression {% endblock %}
+
+{% block content %}
+<main class="flex-1 flex items-center justify-center bg-background-light dark:bg-background-dark p-6">
+    <div class="max-w-md w-full">
+        <div class="bg-white dark:bg-surface-dark rounded-2xl border border-slate-200 dark:border-border-dark shadow-2xl overflow-hidden">
+            
+            <div class="bg-red-500/10 px-8 py-6 flex flex-col items-center text-center gap-4">
+                <div class="size-16 rounded-full bg-red-500/20 flex items-center justify-center text-red-500">
+                    <span class="material-symbols-outlined text-4xl">warning</span>
+                </div>
+                <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase">
+                    Supprimer le film ?
+                </h2>
+            </div>
+
+            <div class="p-8 text-center space-y-6">
+                <p class="text-slate-600 dark:text-zinc-400 leading-relaxed">
+                    Êtes-vous sûr de vouloir supprimer <span class="font-bold text-slate-900 dark:text-white">"{{ film.tire }}"</span> ? 
+                    <br><span class="text-sm">Cette action est irréversible et supprimera toutes les séances associées.</span>
+                </p>
+
+                <form method="post" class="flex flex-col gap-3">
+                    {% csrf_token %}
+                    <button type="submit" 
+                            class="w-full py-3.5 rounded-xl bg-red-500 hover:bg-red-600 cursor-pointer  text-white font-bold shadow-lg shadow-red-500/20 transition-all active:scale-95 uppercase tracking-wider text-sm">
+                        Confirmer la suppression
+                    </button>
+                    
+                    <a href="{% url 'film_list' %}" 
+                       class="w-full py-3.5 rounded-xl bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-bold hover:bg-slate-200 dark:hover:bg-zinc-700 transition-all uppercase tracking-wider text-sm">
+                        Annuler et revenir
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

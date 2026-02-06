@@ -1,136 +1,157 @@
 {% load static tailwind_tags %}
-<!DOCTYPE html>
+<!doctype html>
 <html class="dark" lang="fr">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>{% block title %}Panneau d'Administration CinéLuxe {% endblock %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>
+    {% block title %}Panneau d'Administration CinéLuxe {% endblock %}
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
 
+  {% tailwind_css %}
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+    }
 
-    {% tailwind_css %}
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .active{
-            color: oklch(70.7% 0.022 261.325);
-        }
+    .active {
+      color: oklch(70.7% 0.022 261.325);
+    }
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+    }
+  </style>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
-    <div class="flex h-screen overflow-hidden">
-        <aside
-            class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col justify-between py-6">
-            <div class="flex flex-col gap-8 px-4">
-                <div class="flex items-center gap-3 px-2">
-                    <div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
-                        <span class="material-symbols-outlined">movie</span>
-                    </div>
-                    <div>
-                        <h1 class="text-lg font-bold leading-none tracking-tight">CinéLuxe</h1>
-                        <p class="text-xs text-slate-500 dark:text-zinc-500 font-medium">Admin Cinéma de Luxe</p>
-                    </div>
-                </div>
-                <nav class="flex flex-col gap-1">
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">dashboard</span>
-                        <span class="text-sm font-semibold">Tableau de bord</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">door_open</span>
-                        <span class="text-sm font-medium">Salles</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
-                        href=" {% url 'film_list' %}">
-                        <span class="material-symbols-outlined">movie_filter</span>
-                        <span class="text-sm font-medium">Films</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">confirmation_number</span>
-                        <span class="text-sm font-medium">Réservations</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">analytics</span>
-                        <span class="text-sm font-medium">Analyses</span>
-                    </a>
-                </nav>
-            </div>
-            <div class="flex flex-col gap-4 px-4">
-                <button
-                    class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2.5 rounded-lg transition-all shadow-lg shadow-primary/20">
-                    <span class="material-symbols-outlined text-[20px]">add</span>
-                    <a href="#">Nouveau Film</a>
-                </button>
-                <div class="pt-4 border-t border-slate-200 dark:border-border-dark flex flex-col gap-1">
-                    <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-primary transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">settings</span>
-                        <span class="text-sm font-medium">Paramètres</span>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-red-500 transition-colors"
-                        href="#">
-                        <span class="material-symbols-outlined">logout</span>
-                        <span class="text-sm font-medium">Déconnexion</span>
-                    </a>
-                </div>
-            </div>
-        </aside>
+  <div class="flex h-screen overflow-hidden">
+    <aside
+      class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col justify-between py-6">
+      <div class="flex flex-col gap-8 px-4">
+        <div class="flex items-center gap-3 px-2">
+          <div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
+            <span class="material-symbols-outlined">movie</span>
+          </div>
+          <div>
+            <h1 class="text-lg font-bold leading-none tracking-tight">
+              CinéLuxe
+            </h1>
+            <p class="text-xs text-slate-500 dark:text-zinc-500 font-medium">
+              Admin Cinéma de Luxe
+            </p>
+          </div>
+        </div>
+        <nav class="flex flex-col gap-1">
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg {% if 'admin-custom' in request.path %} bg-primary/10 text-primary {% else %} text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 {% endif %} transition-colors"
+            href="{% url 'dashbord' %}">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="text-sm font-semibold">Tableau de bord</span>
+          </a>
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg {% if 'cinema' in request.path %} bg-primary/10 text-primary {% else %} text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 {% endif %} transition-colors"
+            href="{% url 'cinema_list' %}">
+            <span class="material-symbols-outlined">theater_comedy</span>
+            <span class="text-sm font-medium">Cinémas</span>
+          </a>
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg {% if 'salle' in request.path %} bg-primary/10 text-primary {% else %} text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 {% endif %} transition-colors"
+            href="{% url 'salle_list' %}">
+            <span class="material-symbols-outlined">door_open</span>
+            <span class="text-sm font-medium">Salles</span>
+          </a>
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg {% if 'film' in request.path %} bg-primary/10 text-primary {% else %} text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 {% endif %} transition-colors"
+            href="{% url 'film_list' %}">
+            <span class="material-symbols-outlined">movie_filter</span>
+            <span class="text-sm font-medium">Films</span>
+          </a>
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg {% if 'seance' in request.path %} bg-primary/10 text-primary {% else %} text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 {% endif %} transition-colors"
+            href="{% url 'seance_list' %}">
+            <span class="material-symbols-outlined">schedule</span>
+            <span class="text-sm font-medium">Séances</span>
+          </a>
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg {% if 'reservation' in request.path %} bg-primary/10 text-primary {% else %} text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 {% endif %} transition-colors"
+            href="{% url 'reservation_list' %}">
+            <span class="material-symbols-outlined">confirmation_number</span>
+            <span class="text-sm font-medium">Réservations</span>
+          </a>
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
+            href="{% url 'accueil' %}" target="_blank">
+            <span class="material-symbols-outlined">public</span>
+            <span class="text-sm font-medium">Voir le site</span>
+          </a>
+        </nav>
+      </div>
+      <div class="flex flex-col gap-4 px-4">
+        <button
+          class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2.5 rounded-lg transition-all shadow-lg shadow-primary/20">
+          <span class="material-symbols-outlined text-[20px]">add</span>
+          <a href="{% url 'film_create' %}">Nouveau Film</a>
+        </button>
+        <div class="pt-4 border-t border-slate-200 dark:border-border-dark flex flex-col gap-1">
+          <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-primary transition-colors"
+            href="#">
+            <span class="material-symbols-outlined">settings</span>
+            <span class="text-sm font-medium">Paramètres</span>
+          </a>
+          <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-500 hover:text-red-500 transition-colors"
+            href="#">
+            <span class="material-symbols-outlined">logout</span>
+            <span class="text-sm font-medium">Déconnexion</span>
+          </a>
+        </div>
+      </div>
+    </aside>
 
-        <main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
-            <header
-                class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
-                <div class="flex items-center gap-6 flex-1">
-                    <div class="relative w-full max-w-md">
-                        <span
-                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500 text-[20px]">search</span>
-                        <input
-                            class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:zinc-600 text-slate-900 dark:text-zinc-200"
-                            placeholder="Rechercher..." type="text" />
-                    </div>
-                </div>
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-2 mr-4">
-                        <button
-                            class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-primary transition-colors">
-                            <span class="material-symbols-outlined">notifications</span>
-                        </button>
-                        <button
-                            class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-primary transition-colors">
-                            <span class="material-symbols-outlined">chat_bubble</span>
-                        </button>
-                    </div>
-                    <div class="flex items-center gap-3 border-l border-slate-200 dark:border-border-dark pl-4">
-                        <div class="text-right hidden sm:block">
-                            <p class="text-sm font-bold leading-none">Julian Vance</p>
-                            <p class="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">Directeur Général</p>
-                        </div>
-                        <div class="size-10 rounded-full border-2 border-primary/20 bg-center bg-no-repeat bg-cover"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCowv4uTeA3xfota7gffoDjcjH11VmyxIwropUxPQTN0aA63Btr2Y8vu94uR2GSvdpKIM-Zf2Ah9h5bPNzdpXNkC3AaGr80uc-szNyMqvuxJzE-5L9ihQ1OFT1YO88bxaRnJNvFAL0ja6TM1PnDaQC8peWdFe7tleaJvheZOQ9v2ltKt9Ql0lVUx3gSnCHU_h1VRbXYqzU7ytg9xTjJLEwUmNHHi2OIeMOUgD3T9HEpxYRyzvp2tzCzFLZTyyQzLoUt_zzDxOgI9uXz');">
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <div class="p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-8">
-                {% block content %}
-                {% endblock %}
+    <main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
+      <header
+        class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
+        <div class="flex items-center gap-6 flex-1">
+          <div class="relative w-full max-w-md">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500 text-[20px]">search</span>
+            <input
+              class="w-full bg-slate-100 dark:bg-zinc-800/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:zinc-600 text-slate-900 dark:text-zinc-200"
+              placeholder="Rechercher..." type="text" />
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2 mr-4">
+            <button
+              class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-primary transition-colors">
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button
+              class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-primary transition-colors">
+              <span class="material-symbols-outlined">chat_bubble</span>
+            </button>
+          </div>
+          <div class="flex items-center gap-3 border-l border-slate-200 dark:border-border-dark pl-4">
+            <div class="text-right hidden sm:block">
+              <p class="text-sm font-bold leading-none">Julian Vance</p>
+              <p class="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">
+                Directeur Général
+              </p>
             </div>
-        </main>
-    </div>
+            <div class="size-10 rounded-full border-2 border-primary/20 bg-center bg-no-repeat bg-cover" style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCowv4uTeA3xfota7gffoDjcjH11VmyxIwropUxPQTN0aA63Btr2Y8vu94uR2GSvdpKIM-Zf2Ah9h5bPNzdpXNkC3AaGr80uc-szNyMqvuxJzE-5L9ihQ1OFT1YO88bxaRnJNvFAL0ja6TM1PnDaQC8peWdFe7tleaJvheZOQ9v2ltKt9Ql0lVUx3gSnCHU_h1VRbXYqzU7ytg9xTjJLEwUmNHHi2OIeMOUgD3T9HEpxYRyzvp2tzCzFLZTyyQzLoUt_zzDxOgI9uXz&quot;);
+                "></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="p-8 max-w-[1400px] w-full mx-auto flex flex-col gap-8">
+        {% block content %} {% endblock %}
+      </div>
+    </main>
+  </div>
 </body>
 
 </html>

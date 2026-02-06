@@ -1,0 +1,70 @@
+{% extends 'admin_base.html' %}
+
+{% block content %}
+<div class="flex flex-wrap items-end justify-between gap-4">
+    <div class="space-y-1">
+        <h2 class="text-3xl font-black tracking-tight">Séances</h2>
+        <p class="text-slate-500 dark:text-zinc-400">Planification des projections.</p>
+    </div>
+    <div class="flex gap-3">
+        <a href="{% url 'seance_create' %}"
+            class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2">
+            <span class="material-symbols-outlined">add</span>
+            Nouvelle Séance
+        </a>
+    </div>
+</div>
+
+<div class="rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left">
+            <thead
+                class="bg-slate-50 dark:bg-zinc-800/50 text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-zinc-500">
+                <tr>
+                    <th class="px-6 py-4">Film</th>
+                    <th class="px-6 py-4">Lieu</th>
+                    <th class="px-6 py-4">Horaire</th>
+                    <th class="px-6 py-4">Prix</th>
+                    <th class="px-6 py-4 text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-zinc-800">
+                {% for seance in seances %}
+                <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
+                    <td class="px-6 py-4">
+                        <span class="font-bold text-slate-700 dark:text-zinc-200">{{ seance.film.titre }}</span>
+                        <div class="text-xs text-slate-400 mt-0.5">{{ seance.film.duree_formatee }}</div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm font-medium">{{ seance.salle.cinema.nom }}</div>
+                        <div class="text-xs text-slate-500">Salle {{ seance.salle.numero }}</div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
+                        {{ seance.date_heure|date:"d M Y, H:i" }}
+                    </td>
+                    <td class="px-6 py-4 font-mono font-bold">{{ seance.prix }} €</td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex items-center justify-end gap-2">
+                            <a href="{% url 'seance_update' seance.pk %}"
+                                class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-400 hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">edit</span>
+                            </a>
+                            <a href="{% url 'seance_delete' seance.pk %}"
+                                class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-400 hover:text-red-500 transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">delete</span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="px-6 py-8 text-center text-slate-500 dark:text-zinc-500">
+                        Aucune séance programmée.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

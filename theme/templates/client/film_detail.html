@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ film.titre }} - CinéLuxe{% endblock %}
+
+{% block content %}
+<section class="relative w-full h-[60vh]">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style="background-image: url('{% if film.affiche %}{{ film.affiche.url }}{% else %}https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop{% endif %}');">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent"></div>
+    <div class="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-end pb-12">
+        <div class="flex flex-col md:flex-row gap-8 items-end">
+            <div
+                class="w-full max-w-[240px] rounded-xl overflow-hidden shadow-2xl border border-white/10 hidden md:block">
+                {% if film.affiche %}
+                <img src="{{ film.affiche.url }}" alt="{{ film.titre }}" class="w-full h-auto">
+                {% else %}
+                <div class="w-full aspect-[2/3] bg-zinc-800 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-4xl text-zinc-600">movie</span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="space-y-4 flex-1">
+                <div class="flex items-center gap-3">
+                    <span class="bg-primary px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase">FILM DU
+                        MOMENT</span>
+                    <span class="text-gray-400 font-bold uppercase tracking-widest text-xs">{{ film.genre }}</span>
+                    <span class="text-gray-400 text-xs">•</span>
+                    <span class="text-gray-400 font-bold uppercase tracking-widest text-xs">{{ film.duree_formatee
+                        }}</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black leading-none tracking-tight uppercase">{{ film.titre }}</h1>
+                <p class="text-lg text-gray-300 font-medium leading-relaxed max-w-2xl">
+                    {{ film.synopsis }}
+                </p>
+                <div class="flex items-center gap-4 pt-2">
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm font-bold text-gray-400 uppercase tracking-wider">Réalisateur :</span>
+                        <span class="text-white font-semibold">{{ film.realisateur }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold tracking-tight mb-8 flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary">calendar_month</span>
+        Prochaines Séances
+    </h2>
+
+    {% if seances %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for seance in seances %}
+        <div
+            class="group bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-colors">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">{{ seance.salle.cinema.nom }}</h3>
+                        <p class="text-sm text-gray-400">{{ seance.salle.cinema.ville }} • Salle {{ seance.salle.numero
+                            }}</p>
+                    </div>
+                    <span class="px-2 py-1 rounded bg-white/10 text-xs font-bold uppercase">{{
+                        seance.salle.get_type_ecran_display }}</span>
+                </div>
+
+                <div class="flex items-end justify-between mt-6">
+                    <div>
+                        <p class="text-sm text-gray-500 uppercase font-bold tracking-wider mb-1">Horaire</p>
+                        <p class="text-xl font-black text-white">{{ seance.date_heure|date:"d M \à H:i" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 uppercase font-bold tracking-wider mb-1 text-right">Prix</p>
+                        <p class="text-xl font-black text-primary text-right">{{ seance.prix }} €</p>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'reservation_create' seance.pk %}"
+                class="block w-full bg-primary py-3 text-center font-bold text-white uppercase tracking-widest hover:bg-primary/90 transition-colors">
+                Réserver
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="bg-white/5 border border-white/10 rounded-xl p-12 text-center">
+        <span class="material-symbols-outlined text-4xl text-gray-600 mb-4">event_busy</span>
+        <h3 class="text-xl font-bold text-gray-400">Aucune séance programmée</h3>
+        <p class="text-gray-500 mt-2">Revenez plus tard pour voir les horaires disponibles.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

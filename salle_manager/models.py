@@ -16,7 +16,7 @@ class Salle(BaseModel):
     numero = models.PositiveIntegerField()
     capacite = models.PositiveIntegerField()
     type_ecran = models.CharField(max_length=20, choices=TYPE_ECRAN_CHOICES, default='STD')
-
+ 
     class Meta:
         indexes = [models.Index(fields=['numero'])]
     def __str__(self):

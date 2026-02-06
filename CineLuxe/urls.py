@@ -24,6 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account.urls')),
     path('admin-custom/', include('core.urls')),
+    path('cinema/', include('cinema_manager.urls')),
+    path('salle/', include('salle_manager.urls')),
+    path('seance/', include('seance_manager.urls')),
+    path('reservation/', include('reservation_manager.urls')),
     path('film/', include('film_manager.urls')),
 
 ] 

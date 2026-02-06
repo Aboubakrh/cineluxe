@@ -1,314 +1,582 @@
-<!DOCTYPE html>
-<html class="dark" lang="fr"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>CinéLuxe | Détails du Film &amp; Séances</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<!doctype html>
+<html class="dark" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CinéLuxe | Détails du Film &amp; Séances</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             colors: {
-              "primary": "#ff4d00",
+              primary: "#ff4d00",
               "background-light": "#f8f6f5",
               "background-dark": "#0a0a0a",
               "card-dark": "#1a1a1a",
-              "accent-dark": "#262626"
+              "accent-dark": "#262626",
             },
             fontFamily: {
-              "display": ["Inter", "sans-serif"]
+              display: ["Inter", "sans-serif"],
             },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
           },
         },
-      }
+      };
     </script>
-<style type="text/tailwindcss">
-        .backdrop-gradient {
-            background: linear-gradient(to bottom, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.8) 70%, rgba(10, 10, 10, 1) 100%);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            height: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #ff4d00;
-            border-radius: 10px;
-        }
+    <style type="text/tailwindcss">
+      .backdrop-gradient {
+        background: linear-gradient(
+          to bottom,
+          rgba(10, 10, 10, 0) 0%,
+          rgba(10, 10, 10, 0.8) 70%,
+          rgba(10, 10, 10, 1) 100%
+        );
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        height: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #ff4d00;
+        border-radius: 10px;
+      }
     </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display text-white transition-colors duration-300">
-<header class="fixed top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md px-6 py-3">
-<div class="max-w-7xl mx-auto flex items-center justify-between">
-<div class="flex items-center gap-10">
-<div class="flex items-center gap-2">
-<div class="text-primary size-6">
-<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
-</svg>
-</div>
-<h2 class="text-xl font-bold tracking-tight">CinéLuxe</h2>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-white/70 hover:text-primary transition-colors text-sm font-medium" href="#">Films</a>
-<a class="text-white/70 hover:text-primary transition-colors text-sm font-medium" href="#">Cinémas</a>
-<a class="text-white/70 hover:text-primary transition-colors text-sm font-medium" href="#">Offres</a>
-<a class="text-white/70 hover:text-primary transition-colors text-sm font-medium" href="#">Salon Or</a>
-</nav>
-</div>
-<div class="flex items-center gap-6">
-<div class="relative hidden lg:block">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-[20px]">search</span>
-<input class="bg-accent-dark border-none rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Rechercher des films, acteurs..."/>
-</div>
-<button class="bg-primary hover:bg-primary/90 transition-colors px-6 py-2 rounded-lg text-sm font-bold">Connexion</button>
-</div>
-</div>
-</header>
-<main class="pt-16 pb-20">
-<div class="relative w-full h-[60vh] overflow-hidden">
-<div class="absolute inset-0 bg-center bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXUgU2aZkywkK0GGz5JM_qmTsR6Q0gX2BSi59X7ESDnFUJRIZPAOfLLz3Y96GbvYQVTRMOgh55obJCsrny8Qe-4hvlGJFycRtisDtFhQxDEFu7TPGFzQeIlrweOfmV1ZPrClcA0LlERP-2zvvKQf5QSf7DgnHCcXQt9qintHmQpFaiP3_IqvcnYAAmL5h73JwFiG1Gk9mNNBGBYP1RV6lYpyI_-Wx2c-WTB55JNyIaRS41ZRQGXprp8xnGMNSjbX2T_viYnKRhf-_3');"></div>
-<div class="absolute inset-0 backdrop-gradient"></div>
-<div class="absolute bottom-0 w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 px-6 pb-12">
-<div class="flex flex-col md:flex-row gap-8 items-end">
-<div class="hidden md:block w-64 aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border border-white/10 shrink-0">
-<img alt="Affiche du film Interstellar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOEhwYBG3uSmVfeeRW7JL_2ZSnyJmrPQE6iLapHvGY6v8O9eZrrD9oeBY8DEgY0zoEoq6JJQ-1RH7czCGZT2vAfTdK9Exh6zuI4z4jBBizBy3v8Z7rC1HGTxi-ubtDnYjRtbv8b3h0W4fs857XO6i5lq0RWFO5AoQvtrwY0RNNU116HkqEAg2cUu3e_RnF-yNU4AGkW-y3P9Ie0SKwi0WIcvDXmwZe9LnzlNJ3eiNnC112muhhi9DyrMCBVSGvn97P2stgfIWUTRlQ"/>
-</div>
-<div class="flex-1">
-<div class="flex flex-wrap gap-2 mb-4">
-<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-1 rounded uppercase border border-primary/30">Science-Fiction</span>
-<span class="bg-white/10 text-white/70 text-[10px] font-bold px-2 py-1 rounded uppercase border border-white/10">Aventure</span>
-</div>
-<h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">Interstellar</h1>
-<div class="flex items-center gap-6 text-white/60 font-medium">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">schedule</span>
-                                2h 49m
-                            </div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">calendar_today</span>
-                                2014
-                            </div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">star</span>
-<span class="text-white">8.7</span>/10
-                            </div>
-<div class="border border-white/20 px-2 py-0.5 rounded text-xs">Avertissement</div>
-</div>
-</div>
-<div class="flex gap-4 mb-2">
-<button class="bg-white/10 hover:bg-white/20 transition-all p-4 rounded-full border border-white/10">
-<span class="material-symbols-outlined">play_arrow</span>
-</button>
-<button class="bg-white/10 hover:bg-white/20 transition-all p-4 rounded-full border border-white/10">
-<span class="material-symbols-outlined">bookmark</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
-<div class="lg:col-span-2 space-y-12">
-<section>
-<h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-<span class="w-8 h-1 bg-primary rounded-full"></span>
-                        Synopsis
-                    </h3>
-<p class="text-white/70 text-lg leading-relaxed font-light">
-                        Alors que le temps de l'humanité sur Terre touche à sa fin, un groupe d'astronautes doit se rendre là où aucun humain n'est allé auparavant. 
-                        Une équipe d'explorateurs voyage à travers un trou de ver récemment découvert dans l'espace afin de tenter d'assurer la survie de l'humanité. 
-                        Dans une course contre la montre et à travers l'immensité de l'univers, ils cherchent une nouvelle demeure parmi les étoiles.
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-white transition-colors duration-300"
+  >
+    <header
+      class="fixed top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md px-6 py-3"
+    >
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-10">
+          <div class="flex items-center gap-2">
+            <div class="text-primary size-6">
+              <svg
+                fill="currentColor"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold tracking-tight">CinéLuxe</h2>
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-white/70 hover:text-primary transition-colors text-sm font-medium"
+              href="#"
+              >Films</a
+            >
+            <a
+              class="text-white/70 hover:text-primary transition-colors text-sm font-medium"
+              href="#"
+              >Cinémas</a
+            >
+            <a
+              class="text-white/70 hover:text-primary transition-colors text-sm font-medium"
+              href="#"
+              >Offres</a
+            >
+            <a
+              class="text-white/70 hover:text-primary transition-colors text-sm font-medium"
+              href="#"
+              >Salon Or</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="relative hidden lg:block">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-[20px]"
+              >search</span
+            >
+            <input
+              class="bg-accent-dark border-none rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-primary"
+              placeholder="Rechercher des films, acteurs..."
+            />
+          </div>
+          <button
+            class="bg-primary hover:bg-primary/90 transition-colors px-6 py-2 rounded-lg text-sm font-bold"
+          >
+            Connexion
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="pt-16 pb-20">
+      <div class="relative w-full h-[60vh] overflow-hidden">
+        <div
+          class="absolute inset-0 bg-center bg-cover"
+          style="
+            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCXUgU2aZkywkK0GGz5JM_qmTsR6Q0gX2BSi59X7ESDnFUJRIZPAOfLLz3Y96GbvYQVTRMOgh55obJCsrny8Qe-4hvlGJFycRtisDtFhQxDEFu7TPGFzQeIlrweOfmV1ZPrClcA0LlERP-2zvvKQf5QSf7DgnHCcXQt9qintHmQpFaiP3_IqvcnYAAmL5h73JwFiG1Gk9mNNBGBYP1RV6lYpyI_-Wx2c-WTB55JNyIaRS41ZRQGXprp8xnGMNSjbX2T_viYnKRhf-_3&quot;);
+          "
+        ></div>
+        <div class="absolute inset-0 backdrop-gradient"></div>
+        <div
+          class="absolute bottom-0 w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 px-6 pb-12"
+        >
+          <div class="flex flex-col md:flex-row gap-8 items-end">
+            <div
+              class="hidden md:block w-64 aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border border-white/10 shrink-0"
+            >
+              <img
+                alt="Affiche du film Interstellar"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOEhwYBG3uSmVfeeRW7JL_2ZSnyJmrPQE6iLapHvGY6v8O9eZrrD9oeBY8DEgY0zoEoq6JJQ-1RH7czCGZT2vAfTdK9Exh6zuI4z4jBBizBy3v8Z7rC1HGTxi-ubtDnYjRtbv8b3h0W4fs857XO6i5lq0RWFO5AoQvtrwY0RNNU116HkqEAg2cUu3e_RnF-yNU4AGkW-y3P9Ie0SKwi0WIcvDXmwZe9LnzlNJ3eiNnC112muhhi9DyrMCBVSGvn97P2stgfIWUTRlQ"
+              />
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-1 rounded uppercase border border-primary/30"
+                  >Science-Fiction</span
+                >
+                <span
+                  class="bg-white/10 text-white/70 text-[10px] font-bold px-2 py-1 rounded uppercase border border-white/10"
+                  >Aventure</span
+                >
+              </div>
+              <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">
+                Interstellar
+              </h1>
+              <div class="flex items-center gap-6 text-white/60 font-medium">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary"
+                    >schedule</span
+                  >
+                  2h 49m
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary"
+                    >calendar_today</span
+                  >
+                  2014
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary"
+                    >star</span
+                  >
+                  <span class="text-white">8.7</span>/10
+                </div>
+                <div class="border border-white/20 px-2 py-0.5 rounded text-xs">
+                  Avertissement
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-4 mb-2">
+              <button
+                class="bg-white/10 hover:bg-white/20 transition-all p-4 rounded-full border border-white/10"
+              >
+                <span class="material-symbols-outlined">play_arrow</span>
+              </button>
+              <button
+                class="bg-white/10 hover:bg-white/20 transition-all p-4 rounded-full border border-white/10"
+              >
+                <span class="material-symbols-outlined">bookmark</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 mt-12"
+      >
+        <div class="lg:col-span-2 space-y-12">
+          <section>
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="w-8 h-1 bg-primary rounded-full"></span>
+              Synopsis
+            </h3>
+            <p class="text-white/70 text-lg leading-relaxed font-light">
+              Alors que le temps de l'humanité sur Terre touche à sa fin, un
+              groupe d'astronautes doit se rendre là où aucun humain n'est allé
+              auparavant. Une équipe d'explorateurs voyage à travers un trou de
+              ver récemment découvert dans l'espace afin de tenter d'assurer la
+              survie de l'humanité. Dans une course contre la montre et à
+              travers l'immensité de l'univers, ils cherchent une nouvelle
+              demeure parmi les étoiles.
+            </p>
+          </section>
+          <section>
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="w-8 h-1 bg-primary rounded-full"></span>
+              Réalisateur &amp; Casting
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div class="space-y-1">
+                <p
+                  class="text-white/40 text-xs uppercase font-bold tracking-widest"
+                >
+                  Réalisateur
+                </p>
+                <p class="font-bold">Christopher Nolan</p>
+              </div>
+              <div class="space-y-1">
+                <p
+                  class="text-white/40 text-xs uppercase font-bold tracking-widest"
+                >
+                  Acteurs
+                </p>
+                <p class="font-bold">Matthew McConaughey</p>
+              </div>
+              <div class="space-y-1">
+                <p
+                  class="text-white/40 text-xs uppercase font-bold tracking-widest"
+                >
+                  Acteurs
+                </p>
+                <p class="font-bold">Anne Hathaway</p>
+              </div>
+              <div class="space-y-1">
+                <p
+                  class="text-white/40 text-xs uppercase font-bold tracking-widest"
+                >
+                  Acteurs
+                </p>
+                <p class="font-bold">Jessica Chastain</p>
+              </div>
+            </div>
+          </section>
+          <section
+            class="bg-card-dark rounded-2xl border border-white/5 p-8"
+            id="showtimes"
+          >
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
+            >
+              <h3 class="text-2xl font-bold">Sélectionner une séance</h3>
+              <div class="flex gap-3 overflow-x-auto pb-2 custom-scrollbar">
+                <button
+                  class="shrink-0 bg-primary text-white px-5 py-3 rounded-xl flex flex-col items-center min-w-[80px]"
+                >
+                  <span class="text-[10px] font-bold uppercase opacity-80"
+                    >Oct.</span
+                  >
+                  <span class="text-xl font-bold">20</span>
+                  <span class="text-[10px] font-bold uppercase opacity-80"
+                    >Ven</span
+                  >
+                </button>
+                <button
+                  class="shrink-0 bg-accent-dark hover:bg-white/10 transition-colors text-white/60 px-5 py-3 rounded-xl flex flex-col items-center min-w-[80px] border border-white/5"
+                >
+                  <span class="text-[10px] font-bold uppercase">Oct.</span>
+                  <span class="text-xl font-bold">21</span>
+                  <span class="text-[10px] font-bold uppercase">Sam</span>
+                </button>
+                <button
+                  class="shrink-0 bg-accent-dark hover:bg-white/10 transition-colors text-white/60 px-5 py-3 rounded-xl flex flex-col items-center min-w-[80px] border border-white/5"
+                >
+                  <span class="text-[10px] font-bold uppercase">Oct.</span>
+                  <span class="text-xl font-bold">22</span>
+                  <span class="text-[10px] font-bold uppercase">Dim</span>
+                </button>
+                <button
+                  class="shrink-0 bg-accent-dark hover:bg-white/10 transition-colors text-white/60 px-5 py-3 rounded-xl flex flex-col items-center min-w-[80px] border border-white/5"
+                >
+                  <span class="text-[10px] font-bold uppercase">Oct.</span>
+                  <span class="text-xl font-bold">23</span>
+                  <span class="text-[10px] font-bold uppercase">Lun</span>
+                </button>
+              </div>
+            </div>
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="text-xs font-black tracking-tighter bg-blue-600 px-2 py-0.5 rounded italic"
+                    >IMAX</span
+                  >
+                  <div class="h-px flex-1 bg-white/5"></div>
+                </div>
+                <div
+                  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+                >
+                  <button
+                    class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left"
+                  >
+                    <p class="text-xl font-bold group-hover:text-white mb-1">
+                      14:00
                     </p>
-</section>
-<section>
-<h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-<span class="w-8 h-1 bg-primary rounded-full"></span>
-                        Réalisateur &amp; Casting
-                    </h3>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<div class="space-y-1">
-<p class="text-white/40 text-xs uppercase font-bold tracking-widest">Réalisateur</p>
-<p class="font-bold">Christopher Nolan</p>
-</div>
-<div class="space-y-1">
-<p class="text-white/40 text-xs uppercase font-bold tracking-widest">Acteurs</p>
-<p class="font-bold">Matthew McConaughey</p>
-</div>
-<div class="space-y-1">
-<p class="text-white/40 text-xs uppercase font-bold tracking-widest">Acteurs</p>
-<p class="font-bold">Anne Hathaway</p>
-</div>
-<div class="space-y-1">
-<p class="text-white/40 text-xs uppercase font-bold tracking-widest">Acteurs</p>
-<p class="font-bold">Jessica Chastain</p>
-</div>
-</div>
-</section>
-<section class="bg-card-dark rounded-2xl border border-white/5 p-8" id="showtimes">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-<h3 class="text-2xl font-bold">Sélectionner une séance</h3>
-<div class="flex gap-3 overflow-x-auto pb-2 custom-scrollbar">
-<button class="shrink-0 bg-primary text-white px-5 py-3 rounded-xl flex flex-col items-center min-w-[80px]">
-<span class="text-[10px] font-bold uppercase opacity-80">Oct.</span>
-<span class="text-xl font-bold">20</span>
-<span class="text-[10px] font-bold uppercase opacity-80">Ven</span>
-</button>
-<button class="shrink-0 bg-accent-dark hover:bg-white/10 transition-colors text-white/60 px-5 py-3 rounded-xl flex flex-col items-center min-w-[80px] border border-white/5">
-<span class="text-[10px] font-bold uppercase">Oct.</span>
-<span class="text-xl font-bold">21</span>
-<span class="text-[10px] font-bold uppercase">Sam</span>
-</button>
-<button class="shrink-0 bg-accent-dark hover:bg-white/10 transition-colors text-white/60 px-5 py-3 rounded-xl flex flex-col items-center min-w-[80px] border border-white/5">
-<span class="text-[10px] font-bold uppercase">Oct.</span>
-<span class="text-xl font-bold">22</span>
-<span class="text-[10px] font-bold uppercase">Dim</span>
-</button>
-<button class="shrink-0 bg-accent-dark hover:bg-white/10 transition-colors text-white/60 px-5 py-3 rounded-xl flex flex-col items-center min-w-[80px] border border-white/5">
-<span class="text-[10px] font-bold uppercase">Oct.</span>
-<span class="text-xl font-bold">23</span>
-<span class="text-[10px] font-bold uppercase">Lun</span>
-</button>
-</div>
-</div>
-<div class="space-y-8">
-<div class="space-y-4">
-<div class="flex items-center gap-3">
-<span class="text-xs font-black tracking-tighter bg-blue-600 px-2 py-0.5 rounded italic">IMAX</span>
-<div class="h-px flex-1 bg-white/5"></div>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-<button class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left">
-<p class="text-xl font-bold group-hover:text-white mb-1">14:00</p>
-<div class="flex items-center justify-between">
-<p class="text-[10px] text-white/40 group-hover:text-white/80 uppercase">Salle 1</p>
-<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
-</div>
-</button>
-<button class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left">
-<p class="text-xl font-bold group-hover:text-white mb-1">19:30</p>
-<div class="flex items-center justify-between">
-<p class="text-[10px] text-white/40 group-hover:text-white/80 uppercase">Salle 1</p>
-<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
-</div>
-</button>
-<button class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left">
-<p class="text-xl font-bold group-hover:text-white mb-1">22:45</p>
-<div class="flex items-center justify-between">
-<p class="text-[10px] text-white/40 group-hover:text-white/80 uppercase">Salle 1</p>
-<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
-</div>
-</button>
-</div>
-</div>
-<div class="space-y-4">
-<div class="flex items-center gap-3">
-<span class="text-xs font-black tracking-widest bg-amber-500/20 text-amber-500 border border-amber-500/30 px-2 py-0.5 rounded uppercase">Salon Or</span>
-<div class="h-px flex-1 bg-white/5"></div>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-<button class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left opacity-50 cursor-not-allowed">
-<p class="text-xl font-bold mb-1">15:30</p>
-<p class="text-[10px] text-white/40 uppercase">Complet</p>
-</button>
-<button class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left">
-<p class="text-xl font-bold group-hover:text-white mb-1">20:15</p>
-<div class="flex items-center justify-between">
-<p class="text-[10px] text-white/40 group-hover:text-white/80 uppercase">Suite A</p>
-<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
-</div>
-</button>
-</div>
-</div>
-<div class="space-y-4">
-<div class="flex items-center gap-3">
-<span class="text-xs font-bold tracking-widest text-white/40 uppercase">Standard 4K</span>
-<div class="h-px flex-1 bg-white/5"></div>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-<button class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left">
-<p class="text-xl font-bold group-hover:text-white mb-1">12:00</p>
-<div class="flex items-center justify-between">
-<p class="text-[10px] text-white/40 group-hover:text-white/80 uppercase">Salle 4</p>
-<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
-</div>
-</button>
-<button class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left">
-<p class="text-xl font-bold group-hover:text-white mb-1">16:45</p>
-<div class="flex items-center justify-between">
-<p class="text-[10px] text-white/40 group-hover:text-white/80 uppercase">Salle 7</p>
-<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
-</div>
-</button>
-</div>
-</div>
-</div>
-</section>
-</div>
-<div class="space-y-10">
-<section class="bg-card-dark rounded-2xl border border-white/5 overflow-hidden">
-<div class="p-6">
-<h4 class="font-bold text-lg mb-4">Emplacement</h4>
-<div class="w-full h-48 bg-accent-dark rounded-lg relative overflow-hidden mb-4">
-<div class="absolute inset-0 opacity-40 grayscale" style="background-image: radial-gradient(circle, #ff4d00 1px, transparent 1px); background-size: 20px 20px;"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<div class="bg-primary p-2 rounded-full shadow-[0_0_20px_rgba(255,77,0,0.5)]">
-<span class="material-symbols-outlined text-white">location_on</span>
-</div>
-</div>
-</div>
-<p class="font-medium text-sm">CinéLuxe Grand Plaza</p>
-<p class="text-white/40 text-xs">Leicester Square, Londres WC2H 7NA</p>
-</div>
-</section>
-<section>
-<h4 class="font-bold text-lg mb-6">Médias Associés</h4>
-<div class="grid grid-cols-2 gap-4">
-<div class="aspect-square bg-accent-dark rounded-xl overflow-hidden group cursor-pointer border border-white/5">
-<img alt="Visuel galaxie" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcJ6MGV3o_26aEUN-Ui2EtnSJvZH9WBUXL9f-GZC4ruIOnFa5PzkyS6cqZaB_BIJgIV284n94kF83aHI8vygI5dA8TtnVmFVKL3sfsIyNzj5sljoFq4ftRd_hsWvNaKsQ-8wPTPWP-u2uJc-dUVhbgF5TK0SwqjDru2FyCDbFMgLXNnEZ66tNXOpWYyQ5bFOanDXqWHat4kTNen0gYrxfybNowh9ufO1cY2SCt-qis1haAoEGkNGUV48njL2XcF1A47xb0C-N64qHC"/>
-</div>
-<div class="aspect-square bg-accent-dark rounded-xl overflow-hidden group cursor-pointer border border-white/5">
-<img alt="Vaisseau spatial" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrKhNri9-e4wXaJ1r55pbz_KXYVrLeoYr1ciTLmluI1OgsGPwuG673VvE6ei44gQDx9Go3IB7ZnuTXd0chZOiE2IkHT1OHM8oPM4gqrqdh-OlePIilQIDwEB1IT0I83ypP0a4kypdLeDlIbO3iJOZgwJWFIIllVgVymh9KzXnkcEEB-q4nBnKoxymNdPlHKtaLqhtHbyZHiyf_QWciobQbMgWWhsWncNu8b48Yp6b2O-s0pYcCiSskEpwhQO_qs2xoq8z59pPwt9OB"/>
-</div>
-</div>
-</section>
-<section class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-<div class="flex items-start gap-4">
-<div class="text-primary mt-1">
-<span class="material-symbols-outlined text-[32px]">workspace_premium</span>
-</div>
-<div>
-<h4 class="font-bold text-primary mb-1">CinéLuxe Elite</h4>
-<p class="text-sm text-white/80 leading-relaxed">
-                                Les membres Elite bénéficient de 20% de réduction sur toutes les réservations Salon Or et de pop-corn offert.
-                            </p>
-<button class="mt-4 text-primary text-xs font-black uppercase tracking-widest flex items-center gap-1 hover:gap-2 transition-all">
-                                En savoir plus <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-</button>
-</div>
-</div>
-</section>
-</div>
-</div>
-</main>
-<footer class="border-t border-white/5 py-12 bg-card-dark">
-<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="flex items-center gap-2">
-<div class="text-primary size-5 opacity-50">
-<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
-</svg>
-</div>
-<h2 class="text-white/30 text-lg font-bold">CinéLuxe</h2>
-</div>
-<p class="text-white/20 text-xs tracking-widest uppercase">© 2023 Groupe de Divertissement CinéLuxe</p>
-<div class="flex gap-6 text-white/30">
-<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
-<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
-<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
-</div>
-</div>
-</footer>
-
-</body></html>
+                    <div class="flex items-center justify-between">
+                      <p
+                        class="text-[10px] text-white/40 group-hover:text-white/80 uppercase"
+                      >
+                        Salle 1
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity"
+                        >arrow_forward</span
+                      >
+                    </div>
+                  </button>
+                  <button
+                    class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left"
+                  >
+                    <p class="text-xl font-bold group-hover:text-white mb-1">
+                      19:30
+                    </p>
+                    <div class="flex items-center justify-between">
+                      <p
+                        class="text-[10px] text-white/40 group-hover:text-white/80 uppercase"
+                      >
+                        Salle 1
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity"
+                        >arrow_forward</span
+                      >
+                    </div>
+                  </button>
+                  <button
+                    class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left"
+                  >
+                    <p class="text-xl font-bold group-hover:text-white mb-1">
+                      22:45
+                    </p>
+                    <div class="flex items-center justify-between">
+                      <p
+                        class="text-[10px] text-white/40 group-hover:text-white/80 uppercase"
+                      >
+                        Salle 1
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity"
+                        >arrow_forward</span
+                      >
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="text-xs font-black tracking-widest bg-amber-500/20 text-amber-500 border border-amber-500/30 px-2 py-0.5 rounded uppercase"
+                    >Salon Or</span
+                  >
+                  <div class="h-px flex-1 bg-white/5"></div>
+                </div>
+                <div
+                  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+                >
+                  <button
+                    class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left opacity-50 cursor-not-allowed"
+                  >
+                    <p class="text-xl font-bold mb-1">15:30</p>
+                    <p class="text-[10px] text-white/40 uppercase">Complet</p>
+                  </button>
+                  <button
+                    class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left"
+                  >
+                    <p class="text-xl font-bold group-hover:text-white mb-1">
+                      20:15
+                    </p>
+                    <div class="flex items-center justify-between">
+                      <p
+                        class="text-[10px] text-white/40 group-hover:text-white/80 uppercase"
+                      >
+                        Suite A
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity"
+                        >arrow_forward</span
+                      >
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="text-xs font-bold tracking-widest text-white/40 uppercase"
+                    >Standard 4K</span
+                  >
+                  <div class="h-px flex-1 bg-white/5"></div>
+                </div>
+                <div
+                  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+                >
+                  <button
+                    class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left"
+                  >
+                    <p class="text-xl font-bold group-hover:text-white mb-1">
+                      12:00
+                    </p>
+                    <div class="flex items-center justify-between">
+                      <p
+                        class="text-[10px] text-white/40 group-hover:text-white/80 uppercase"
+                      >
+                        Salle 4
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity"
+                        >arrow_forward</span
+                      >
+                    </div>
+                  </button>
+                  <button
+                    class="group bg-accent-dark hover:bg-primary transition-all p-4 rounded-xl border border-white/5 text-left"
+                  >
+                    <p class="text-xl font-bold group-hover:text-white mb-1">
+                      16:45
+                    </p>
+                    <div class="flex items-center justify-between">
+                      <p
+                        class="text-[10px] text-white/40 group-hover:text-white/80 uppercase"
+                      >
+                        Salle 7
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity"
+                        >arrow_forward</span
+                      >
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="space-y-10">
+          <section
+            class="bg-card-dark rounded-2xl border border-white/5 overflow-hidden"
+          >
+            <div class="p-6">
+              <h4 class="font-bold text-lg mb-4">Emplacement</h4>
+              <div
+                class="w-full h-48 bg-accent-dark rounded-lg relative overflow-hidden mb-4"
+              >
+                <div
+                  class="absolute inset-0 opacity-40 grayscale"
+                  style="
+                    background-image: radial-gradient(
+                      circle,
+                      #ff4d00 1px,
+                      transparent 1px
+                    );
+                    background-size: 20px 20px;
+                  "
+                ></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="bg-primary p-2 rounded-full shadow-[0_0_20px_rgba(255,77,0,0.5)]"
+                  >
+                    <span class="material-symbols-outlined text-white"
+                      >location_on</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <p class="font-medium text-sm">CinéLuxe Grand Plaza</p>
+              <p class="text-white/40 text-xs">
+                Leicester Square, Londres WC2H 7NA
+              </p>
+            </div>
+          </section>
+          <section>
+            <h4 class="font-bold text-lg mb-6">Médias Associés</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="aspect-square bg-accent-dark rounded-xl overflow-hidden group cursor-pointer border border-white/5"
+              >
+                <img
+                  alt="Visuel galaxie"
+                  class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcJ6MGV3o_26aEUN-Ui2EtnSJvZH9WBUXL9f-GZC4ruIOnFa5PzkyS6cqZaB_BIJgIV284n94kF83aHI8vygI5dA8TtnVmFVKL3sfsIyNzj5sljoFq4ftRd_hsWvNaKsQ-8wPTPWP-u2uJc-dUVhbgF5TK0SwqjDru2FyCDbFMgLXNnEZ66tNXOpWYyQ5bFOanDXqWHat4kTNen0gYrxfybNowh9ufO1cY2SCt-qis1haAoEGkNGUV48njL2XcF1A47xb0C-N64qHC"
+                />
+              </div>
+              <div
+                class="aspect-square bg-accent-dark rounded-xl overflow-hidden group cursor-pointer border border-white/5"
+              >
+                <img
+                  alt="Vaisseau spatial"
+                  class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrKhNri9-e4wXaJ1r55pbz_KXYVrLeoYr1ciTLmluI1OgsGPwuG673VvE6ei44gQDx9Go3IB7ZnuTXd0chZOiE2IkHT1OHM8oPM4gqrqdh-OlePIilQIDwEB1IT0I83ypP0a4kypdLeDlIbO3iJOZgwJWFIIllVgVymh9KzXnkcEEB-q4nBnKoxymNdPlHKtaLqhtHbyZHiyf_QWciobQbMgWWhsWncNu8b48Yp6b2O-s0pYcCiSskEpwhQO_qs2xoq8z59pPwt9OB"
+                />
+              </div>
+            </div>
+          </section>
+          <section
+            class="bg-primary/10 border border-primary/20 rounded-2xl p-6"
+          >
+            <div class="flex items-start gap-4">
+              <div class="text-primary mt-1">
+                <span class="material-symbols-outlined text-[32px]"
+                  >workspace_premium</span
+                >
+              </div>
+              <div>
+                <h4 class="font-bold text-primary mb-1">CinéLuxe Elite</h4>
+                <p class="text-sm text-white/80 leading-relaxed">
+                  Les membres Elite bénéficient de 20% de réduction sur toutes
+                  les réservations Salon Or et de pop-corn offert.
+                </p>
+                <button
+                  class="mt-4 text-primary text-xs font-black uppercase tracking-widest flex items-center gap-1 hover:gap-2 transition-all"
+                >
+                  En savoir plus
+                  <span class="material-symbols-outlined text-[16px]"
+                    >chevron_right</span
+                  >
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="border-t border-white/5 py-12 bg-card-dark">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8"
+      >
+        <div class="flex items-center gap-2">
+          <div class="text-primary size-5 opacity-50">
+            <svg
+              fill="currentColor"
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-white/30 text-lg font-bold">CinéLuxe</h2>
+        </div>
+        <p class="text-white/20 text-xs tracking-widest uppercase">
+          © 2023 Groupe de Divertissement CinéLuxe
+        </p>
+        <div class="flex gap-6 text-white/30">
+          <a class="hover:text-primary transition-colors" href="#"
+            ><span class="material-symbols-outlined"
+              >social_leaderboard</span
+            ></a
+          >
+          <a class="hover:text-primary transition-colors" href="#"
+            ><span class="material-symbols-outlined">public</span></a
+          >
+          <a class="hover:text-primary transition-colors" href="#"
+            ><span class="material-symbols-outlined">mail</span></a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
