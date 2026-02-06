@@ -1,46 +1,162 @@
 {% extends 'admin_base.html' %}
 
+{% block title %}Détail Réservation #{{ object.pk }} - CinéLuxe{% endblock %}
+
 {% block content %}
-<div class="container mx-auto px-4 py-8">
-    <div class="max-w-2xl mx-auto bg-white rounded-lg shadow overflow-hidden">
-        <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-            <h2 class="text-xl font-bold text-gray-800">Détail Réservation</h2>
-            <span class="text-sm text-gray-500">#{{ object.id }}</span>
+<main class="flex-1 overflow-y-auto flex flex-col bg-background-light dark:bg-background-dark">
+    <!-- En-tête -->
+    <header
+        class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-8 py-4">
+        <div class="flex items-center gap-4">
+            <a class="flex items-center gap-2 text-slate-500 dark:text-zinc-400 hover:text-primary transition-colors"
+                href="{% url 'reservation_list' %}">
+                <span class="material-symbols-outlined">arrow_back</span>
+                <span class="text-sm font-medium">Retour aux réservations</span>
+            </a>
         </div>
-        <div class="p-6 space-y-4">
-            <div>
-                <h3 class="text-sm font-medium text-gray-500">Client</h3>
-                <p class="mt-1 text-lg text-gray-900">{{ object.client.prenom }} {{ object.client.nom }}</p>
-                <p class="text-gray-600">{{ object.client.email }} | {{ object.client.telephone }}</p>
-            </div>
-
-            <hr>
-
-            <div>
-                <h3 class="text-sm font-medium text-gray-500">Séance</h3>
-                <p class="mt-1 text-lg text-gray-900">{{ object.seance.film.titre }}</p>
-                <p class="text-gray-600">
-                    {{ object.seance.salle.cinema.nom }} - Salle {{ object.seance.salle.numero }}<br>
-                    Le {{ object.seance.date_heure|date:"l d F Y à H:i" }}
-                </p>
-            </div>
-
-            <hr>
-
-            <div class="flex justify-between items-end">
-                <div>
-                    <h3 class="text-sm font-medium text-gray-500">Places</h3>
-                    <p class="mt-1 text-lg text-gray-900">{{ object.nb_places }} places</p>
-                </div>
-                <div class="text-right">
-                    <h3 class="text-sm font-medium text-gray-500">Total payé</h3>
-                    <p class="mt-1 text-2xl font-bold text-blue-600">{{ object.total_prix }} €</p>
-                </div>
-            </div>
+        <div class="flex items-center gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+                RÉSERVÉ
+            </span>
         </div>
-        <div class="bg-gray-50 px-6 py-4 flex justify-end">
-            <a href="{% url 'reservation_list' %}" class="text-gray-600 hover:text-gray-900">Retour à la liste</a>
+    </header>
+
+    <div class="p-8 max-w-[1000px] w-full mx-auto flex flex-col gap-8">
+        <!-- Titre de la page -->
+        <div class="space-y-1">
+            <h2 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Réservation N°{{object.pk|truncatechars:8 }}</h2>
+            <p class="text-slate-500 dark:text-zinc-400 font-medium">Détails complets de la transaction et du client.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Colonne Principale (Infos Séance & Film) -->
+            <div class="lg:col-span-2 space-y-6">
+
+                <!-- Carte Informations Séance -->
+                <div
+                    class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark shadow-sm space-y-6">
+                    <h3
+                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-zinc-800 pb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">movie</span>
+                        Informations Séance
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-slate-500 dark:text-zinc-500 uppercase">Film</p>
+                            <p class="text-lg font-bold text-slate-900 dark:text-white">{{ object.seance.film.titre }}
+                            </p>
+                            <p class="text-xs text-slate-400 dark:text-zinc-500">{{ object.seance.film.duree }} min • {{ object.seance.film.genre }}</p>
+                        </div>
+
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-slate-500 dark:text-zinc-500 uppercase">Date & Heure</p>
+                            <p class="text-lg font-bold text-slate-900 dark:text-white">{{ object.seance.date_heure|date:"l d F Y" }}</p>
+                            <p class="text-sm font-medium text-primary">{{ object.seance.date_heure|date:"H:i" }}</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100 dark:border-zinc-800">
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-slate-500 dark:text-zinc-500 uppercase">Cinéma</p>
+                            <p class="text-base font-semibold text-slate-900 dark:text-white">{{ object.seance.salle.cinema.nom }}</p>
+                            <p class="text-sm text-slate-500 dark:text-zinc-400">{{ object.seance.salle.cinema.ville }}
+                            </p>
+                        </div>
+
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-slate-500 dark:text-zinc-500 uppercase">Salle</p>
+                            <p class="text-base font-semibold text-slate-900 dark:text-white">Salle {{ object.seance.salle.numero }}</p>
+                            <p
+                                class="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 inline-block font-bold">
+                                {{ object.seance.salle.get_type_ecran_display }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte Résumé Financier -->
+                <div
+                    class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark shadow-sm space-y-6">
+                    <h3
+                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-zinc-800 pb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">receipt_long</span>
+                        Résumé Financier
+                    </h3>
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-slate-500 dark:text-zinc-400">Prix unitaire</p>
+                            <p class="text-base font-medium text-slate-900 dark:text-white">{{ object.seance.prix }} FCFA
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-slate-500 dark:text-zinc-400">Nombre de places</p>
+                            <p class="text-base font-medium text-slate-900 dark:text-white">x {{ object.nb_places }}</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pt-4 border-t border-dashed border-slate-200 dark:border-zinc-700 flex items-center justify-between">
+                        <p class="text-base font-bold text-slate-900 dark:text-white uppercase">Total Payé</p>
+                        <p class="text-2xl font-black text-primary">{{ object.total_prix }} FCFA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colonne Latérale (Infos Client) -->
+            <div class="space-y-6">
+                <div
+                    class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark shadow-sm space-y-6 sticky top-24">
+                    <h3
+                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-zinc-800 pb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">person</span>
+                        Client
+                    </h3>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
+                            {{ object.client.prenom|first }}{{ object.client.nom|first }}
+                        </div>
+                        <div>
+                            <p class="text-base font-bold text-slate-900 dark:text-white">{{ object.client.prenom }} {{ object.client.nom }}</p>
+                            <p class="text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-wide">Client Standard
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-slate-400 text-[20px]">mail</span>
+                            <div>
+                                <p class="text-xs font-bold text-slate-500 dark:text-zinc-500 uppercase">Email</p>
+                                <a href="mailto:{{ object.client.email }}"
+                                    class="text-sm font-medium text-primary hover:underline">{{ object.client.email }}</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-slate-400 text-[20px]">call</span>
+                            <div>
+                                <p class="text-xs font-bold text-slate-500 dark:text-zinc-500 uppercase">Téléphone</p>
+                                <p class="text-sm font-medium text-slate-900 dark:text-white">{{ object.client.telephone }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-100 dark:border-zinc-800">
+                        <button
+                            class="w-full py-2.5 rounded-lg border border-slate-200 dark:border-zinc-700 text-sm font-bold text-slate-600 dark:text-zinc-400 hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]">edit</span>
+                            Modifier le client
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</main>
 {% endblock %}

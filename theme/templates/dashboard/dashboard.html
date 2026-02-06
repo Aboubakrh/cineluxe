@@ -26,7 +26,7 @@
                     <span
                         class="text-emerald-500 text-xs font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full">+12.4%</span>
                 </div>
-                <p class="text-3xl font-black">42 850 FCFA</p>
+                <p class="text-3xl font-black">{{ revenu_total }} FCFA</p>
                 <p class="text-xs text-slate-400 dark:text-zinc-500 mt-1">vs mois dernier: 38 120 FCFA</p>
             </div>
             <div
@@ -45,21 +45,21 @@
             <div
                 class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark flex flex-col gap-2">
                 <div class="flex justify-between items-start">
-                    <span class="text-slate-500 dark:text-zinc-400 text-sm font-medium">Séances en cours</span>
+                    <span class="text-slate-500 dark:text-zinc-400 text-sm font-medium">Séances à venir</span>
                     <span
                         class="text-emerald-500 text-xs font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full">+2</span>
                 </div>
-                <p class="text-3xl font-black">12</p>
-                <p class="text-xs text-slate-400 dark:text-zinc-500 mt-1">Actuellement dans 6 salles</p>
+                <p class="text-3xl font-black">{{ seances_active }}</p>
+                <p class="text-xs text-slate-400 dark:text-zinc-500 mt-1">Actuellement programmées</p>
             </div>
             <div
                 class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark flex flex-col gap-2">
                 <div class="flex justify-between items-start">
-                    <span class="text-slate-500 dark:text-zinc-400 text-sm font-medium">Abonnements VIP</span>
-                    <span class="text-primary text-xs font-bold bg-primary/10 px-2 py-0.5 rounded-full">+18</span>
+                    <span class="text-slate-500 dark:text-zinc-400 text-sm font-medium">Films en salle</span>
+                    <span class="text-primary text-xs font-bold bg-primary/10 px-2 py-0.5 rounded-full">Actifs</span>
                 </div>
-                <p class="text-3xl font-black">1 420</p>
-                <p class="text-xs text-slate-400 dark:text-zinc-500 mt-1">Taux de croissance: 8% mensuel</p>
+                <p class="text-3xl font-black">{{ total_films }}</p>
+                <p class="text-xs text-slate-400 dark:text-zinc-500 mt-1">Films disponibles au catalogue</p>
             </div>
         </div>
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
@@ -190,115 +190,40 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 dark:divide-zinc-800">
+                        {% for reservation in reservations %}
                         <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-3">
                                     <div
-                                        class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
-                                        AM</div>
-                                    <span class="text-sm font-semibold">Alexander Murphy</span>
+                                        class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs uppercase">
+                                        {{ reservation.client.prenom|first }}{{ reservation.client.nom|first }}
+                                    </div>
+                                    <span class="text-sm font-semibold">{{ reservation.client.prenom }} {{  reservation.client.nom }}</span>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
-                                <span class="text-sm font-medium">Interstellar: Spécial IMAX</span>
+                                <span class="text-sm font-medium">{{ reservation.seance.film.titre }}</span>
                             </td>
                             <td class="px-6 py-4 text-center">
-                                <span
-                                    class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">R2</span>
+                                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">S {{reservation.seance.salle.numero }}</span>
                             </td>
                             <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
-                                Aujourd'hui, 19:45
+                                {{ reservation.seance.date_heure|date:"d M, H:i" }}
                             </td>
                             <td class="px-6 py-4">
                                 <span
                                     class="px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500">CONFIRMÉ</span>
                             </td>
                             <td class="px-6 py-4 text-right font-bold text-sm">
-                                45,00 FCFA
+                                {{ reservation.total_prix }} FCFA
                             </td>
                         </tr>
-                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
-                                        SL</div>
-                                    <span class="text-sm font-semibold">Sophia Laurent</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="text-sm font-medium">Dune: Deuxième Partie</span>
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                <span
-                                    class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">R6</span>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
-                                Aujourd'hui, 21:15
-                            </td>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/10 text-amber-500">EN
-                                    ATTENTE</span>
-                            </td>
-                            <td class="px-6 py-4 text-right font-bold text-sm">
-                                62,50 FCFA
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="px-6 py-8 text-center text-slate-500">Aucune réservation récente.
                             </td>
                         </tr>
-                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
-                                        MK</div>
-                                    <span class="text-sm font-semibold">Marcus Knight</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="text-sm font-medium">Le Parrain: Anniversaire</span>
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                <span
-                                    class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">R4</span>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
-                                25 Oct, 18:00
-                            </td>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-500">CONFIRMÉ</span>
-                            </td>
-                            <td class="px-6 py-4 text-right font-bold text-sm">
-                                28,00 FCFA
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-800/30 transition-colors">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="size-8 rounded-lg bg-slate-200 dark:bg-zinc-700 flex items-center justify-center font-bold text-xs">
-                                        EW</div>
-                                    <span class="text-sm font-semibold">Emma Wright</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="text-sm font-medium">Oppenheimer</span>
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                <span
-                                    class="px-2 py-1 rounded bg-slate-100 dark:bg-zinc-800 text-xs font-bold">R1</span>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-slate-500 dark:text-zinc-400">
-                                25 Oct, 20:30
-                            </td>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-red-500/10 text-red-500">ANNULÉ</span>
-                            </td>
-                            <td class="px-6 py-4 text-right font-bold text-sm">
-                                0,00 FCFA
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

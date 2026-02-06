@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+{% block title %} Tous les films {% endblock %}
+
+{% block content %}
+<section class="max-w-7xl mx-auto px-6 py-12 pt-32">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <h1 class="text-4xl font-black tracking-tight">Tous les films</h1>
+
+        <form method="get" action="." class="w-full md:w-auto">
+            <div
+                class="flex w-full md:w-96 items-stretch rounded-xl h-12 bg-white/5 border border-white/10 focus-within:border-primary/50 transition-colors">
+                <div class="text-gray-400 flex items-center justify-center pl-4">
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+                <input name="q" value="{{ request.GET.q|default:'' }}"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-white focus:outline-0 focus:ring-0 border-none bg-transparent placeholder:text-gray-500 px-4 text-base font-normal"
+                    placeholder="Rechercher un film..." />
+                <button type="submit" class="pr-2">
+                    <span
+                        class="material-symbols-outlined text-gray-400 hover:text-white transition-colors">arrow_forward</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {% for film in films %}
+        <div class="group relative flex flex-col gap-4">
+            <div class="relative aspect-[2/3] overflow-hidden rounded-xl border border-white/10">
+                {% if film.affiche %}
+                <img alt="{{ film.titre }}"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="{{ film.affiche.url }}" /> {% endif %}
+                <div
+                    class="absolute top-3 right-3 glass-effect px-2 py-1 rounded text-[11px] font-bold border border-white/20">
+                    {{film.duree_formatee}}
+                </div>
+                <div
+                    class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <a href="{% url 'film_detail' film.pk %}"
+                        class="bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl scale-90 group-hover:scale-100 transition-transform">
+                        <span class="material-symbols-outlined text-[32px]">play_arrow</span>
+                    </a>
+                </div>
+            </div>
+            <div class="space-y-1">
+                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">{{ film.titre }}
+                </h3>
+                <div class="flex items-center gap-2 text-xs text-gray-400 font-medium">
+                    <span>{{ film.genre }}</span>
+                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                    <span>{{ film.realisateur }}</span>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-span-full py-12 text-center text-gray-400">
+            <p class="text-xl">Aucun film trouvé.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <div class="flex justify-center mt-12 gap-2">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"
+            class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </a>
+        {% endif %}
+
+        <span
+            class="px-4 h-10 rounded-lg bg-primary/20 text-primary border border-primary/20 flex items-center justify-center font-bold">
+            {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"
+            class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <span class="material-symbols-outlined">chevron_right</span>
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

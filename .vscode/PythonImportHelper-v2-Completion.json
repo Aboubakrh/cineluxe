@@ -858,6 +858,102 @@
         "documentation": {}
     },
     {
+        "label": "LoginRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "UserPassesTestMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "UserPassesTestMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "UserPassesTestMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "UserPassesTestMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "UserPassesTestMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "UserPassesTestMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
         "label": "DashboardView",
         "importPath": "core.views",
         "description": "core.views",
@@ -995,6 +1091,14 @@
     },
     {
         "label": "FilmDetailView",
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "isExtraImport": true,
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "ClientFilmListView",
         "importPath": "film_manager.views",
         "description": "film_manager.views",
         "isExtraImport": true,
@@ -1214,7 +1318,7 @@
         "kind": 6,
         "importPath": "account.views",
         "description": "account.views",
-        "peekOfCode": "class AccueilView(TemplateView):\n    template_name = 'accueil/accueil.html'\n    def get_context_data(self, **kwargs):\n        context = super(AccueilView, self).get_context_data(**kwargs)\n        context['films'] = Film.objects.all()\n        print(context['films'])\n        return context",
+        "peekOfCode": "class AccueilView(TemplateView):\n    template_name = 'accueil/accueil.html'\n    def get_context_data(self, **kwargs):\n        context = super(AccueilView, self).get_context_data(**kwargs)\n        query = self.request.GET.get('q')\n        if query:\n            context['films'] = Film.objects.filter(titre__icontains=query)\n        else:\n            context['films'] = Film.objects.all()[:4]\n        return context",
         "detail": "account.views",
         "documentation": {}
     },
@@ -1349,7 +1453,7 @@
         "kind": 5,
         "importPath": "CineLuxe.settings",
         "description": "CineLuxe.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'fr-fr'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "peekOfCode": "LANGUAGE_CODE = 'fr-fr'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nLOGIN_URL = '/admin/login/'\nLOGIN_REDIRECT_URL = '/admin-custom/'",
         "detail": "CineLuxe.settings",
         "documentation": {}
     },
@@ -1358,7 +1462,7 @@
         "kind": 5,
         "importPath": "CineLuxe.settings",
         "description": "CineLuxe.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nLOGIN_URL = '/admin/login/'\nLOGIN_REDIRECT_URL = '/admin-custom/'",
         "detail": "CineLuxe.settings",
         "documentation": {}
     },
@@ -1367,7 +1471,7 @@
         "kind": 5,
         "importPath": "CineLuxe.settings",
         "description": "CineLuxe.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nLOGIN_URL = '/admin/login/'\nLOGIN_REDIRECT_URL = '/admin-custom/'",
         "detail": "CineLuxe.settings",
         "documentation": {}
     },
@@ -1376,7 +1480,7 @@
         "kind": 5,
         "importPath": "CineLuxe.settings",
         "description": "CineLuxe.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nLOGIN_URL = '/admin/login/'\nLOGIN_REDIRECT_URL = '/admin-custom/'",
         "detail": "CineLuxe.settings",
         "documentation": {}
     },
@@ -1385,7 +1489,7 @@
         "kind": 5,
         "importPath": "CineLuxe.settings",
         "description": "CineLuxe.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\nMEDIA_URL = '/media/'",
+        "peekOfCode": "STATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nLOGIN_URL = '/admin/login/'\nLOGIN_REDIRECT_URL = '/admin-custom/'",
         "detail": "CineLuxe.settings",
         "documentation": {}
     },
@@ -1394,7 +1498,25 @@
         "kind": 5,
         "importPath": "CineLuxe.settings",
         "description": "CineLuxe.settings",
-        "peekOfCode": "MEDIA_URL = '/media/'",
+        "peekOfCode": "MEDIA_URL = '/media/'\nLOGIN_URL = '/admin/login/'\nLOGIN_REDIRECT_URL = '/admin-custom/'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_URL",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "LOGIN_URL = '/admin/login/'\nLOGIN_REDIRECT_URL = '/admin-custom/'",
+        "detail": "CineLuxe.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "CineLuxe.settings",
+        "description": "CineLuxe.settings",
+        "peekOfCode": "LOGIN_REDIRECT_URL = '/admin-custom/'",
         "detail": "CineLuxe.settings",
         "documentation": {}
     },
@@ -1462,11 +1584,20 @@
         "documentation": {}
     },
     {
+        "label": "StaffRequiredMixin",
+        "kind": 6,
+        "importPath": "cinema_manager.views",
+        "description": "cinema_manager.views",
+        "peekOfCode": "class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):\n    def test_func(self):\n        return self.request.user.is_staff\nclass CinemaListView(StaffRequiredMixin, ListView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_list.html'\n    context_object_name = 'cinemas'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass CinemaCreateView(StaffRequiredMixin, CreateView):",
+        "detail": "cinema_manager.views",
+        "documentation": {}
+    },
+    {
         "label": "CinemaListView",
         "kind": 6,
         "importPath": "cinema_manager.views",
         "description": "cinema_manager.views",
-        "peekOfCode": "class CinemaListView(ListView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_list.html'\n    context_object_name = 'cinemas'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass CinemaCreateView(CreateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'",
+        "peekOfCode": "class CinemaListView(StaffRequiredMixin, ListView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_list.html'\n    context_object_name = 'cinemas'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass CinemaCreateView(StaffRequiredMixin, CreateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'",
         "detail": "cinema_manager.views",
         "documentation": {}
     },
@@ -1475,7 +1606,7 @@
         "kind": 6,
         "importPath": "cinema_manager.views",
         "description": "cinema_manager.views",
-        "peekOfCode": "class CinemaCreateView(CreateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')\nclass CinemaUpdateView(UpdateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')",
+        "peekOfCode": "class CinemaCreateView(StaffRequiredMixin, CreateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')\nclass CinemaUpdateView(StaffRequiredMixin, UpdateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')",
         "detail": "cinema_manager.views",
         "documentation": {}
     },
@@ -1484,7 +1615,7 @@
         "kind": 6,
         "importPath": "cinema_manager.views",
         "description": "cinema_manager.views",
-        "peekOfCode": "class CinemaUpdateView(UpdateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')\nclass CinemaDeleteView(DeleteView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_confirm_delete.html'\n    success_url = reverse_lazy('cinema_list')",
+        "peekOfCode": "class CinemaUpdateView(StaffRequiredMixin, UpdateView):\n    model = Cinema\n    fields = ['nom', 'adresse', 'ville']\n    template_name = 'dashboard/cinemas/form_cinema.html'\n    success_url = reverse_lazy('cinema_list')\nclass CinemaDeleteView(StaffRequiredMixin, DeleteView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_confirm_delete.html'\n    success_url = reverse_lazy('cinema_list')",
         "detail": "cinema_manager.views",
         "documentation": {}
     },
@@ -1493,7 +1624,7 @@
         "kind": 6,
         "importPath": "cinema_manager.views",
         "description": "cinema_manager.views",
-        "peekOfCode": "class CinemaDeleteView(DeleteView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_confirm_delete.html'\n    success_url = reverse_lazy('cinema_list')",
+        "peekOfCode": "class CinemaDeleteView(StaffRequiredMixin, DeleteView):\n    model = Cinema\n    template_name = 'dashboard/cinemas/cinema_confirm_delete.html'\n    success_url = reverse_lazy('cinema_list')",
         "detail": "cinema_manager.views",
         "documentation": {}
     },
@@ -1529,7 +1660,7 @@
         "kind": 6,
         "importPath": "core.views",
         "description": "core.views",
-        "peekOfCode": "class DashboardView(TemplateView):\n    template_name = 'dashboard/dashboard.html'\n    def get_context_data(self, **kwargs):\n        context = super(DashboardView, self).get_context_data(**kwargs)\n        context['total_films'] = Film.objects.count()\n        context['total_salles'] = Salle.objects.count()\n        # Donnée victives\n        context['revenu_total'] = \"42 850\"\n        context['taux_occupation'] = 78.5\n        context['reservations'] = Reservation.objects.select_related('client', 'film').order_by('-created_at')[:5]",
+        "peekOfCode": "class DashboardView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):\n    template_name = 'dashboard/dashboard.html'\n    def test_func(self):\n        return self.request.user.is_staff\n    def get_context_data(self, **kwargs):\n        from django.db.models import Sum, F, DecimalField, ExpressionWrapper\n        from django.utils import timezone\n        context = super(DashboardView, self).get_context_data(**kwargs)\n        # Totals\n        context['total_films'] = Film.objects.count()",
         "detail": "core.views",
         "documentation": {}
     },
@@ -1574,8 +1705,17 @@
         "kind": 5,
         "importPath": "film_manager.urls",
         "description": "film_manager.urls",
-        "peekOfCode": "urlpatterns = [\n    path('create/', FilmCreateView.as_view(), name='film_create'),\n    path('list/', FilmListView.as_view(), name=\"film_list\"),\n    path('detail/<uuid:pk>/', FilmDetailView.as_view(), name='film_detail'),\n    path('delete/<uuid:pk>', FilmDeleteView.as_view(), name='film_delete'),\n    path('edit/<uuid:pk>', FilmUpdateView.as_view(), name='film_update'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('create/', FilmCreateView.as_view(), name='film_create'),\n    path('list/', FilmListView.as_view(), name=\"film_list\"),\n    path('detail/<uuid:pk>/', FilmDetailView.as_view(), name='film_detail'),\n    path('delete/<uuid:pk>', FilmDeleteView.as_view(), name='film_delete'),\n    path('edit/<uuid:pk>', FilmUpdateView.as_view(), name='film_update'),\n    path('tous/', ClientFilmListView.as_view(), name='client_film_list'),\n]",
         "detail": "film_manager.urls",
+        "documentation": {}
+    },
+    {
+        "label": "StaffRequiredMixin",
+        "kind": 6,
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "peekOfCode": "class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):\n    def test_func(self):\n        return self.request.user.is_staff\nclass FilmCreateView(StaffRequiredMixin, CreateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"synopsis\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'\n    success_url = reverse_lazy('film_list')\nclass FilmListView(StaffRequiredMixin, ListView):\n    model = Film",
+        "detail": "film_manager.views",
         "documentation": {}
     },
     {
@@ -1583,7 +1723,7 @@
         "kind": 6,
         "importPath": "film_manager.views",
         "description": "film_manager.views",
-        "peekOfCode": "class FilmCreateView(CreateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"synopsis\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'\n    success_url = reverse_lazy('film_list')\nclass FilmListView(ListView):\n    model = Film\n    fields = [\"id\",\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/films_list.html'\n    context_object_name = 'films'",
+        "peekOfCode": "class FilmCreateView(StaffRequiredMixin, CreateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"synopsis\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'\n    success_url = reverse_lazy('film_list')\nclass FilmListView(StaffRequiredMixin, ListView):\n    model = Film\n    fields = [\"id\",\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/films_list.html'\n    context_object_name = 'films'",
         "detail": "film_manager.views",
         "documentation": {}
     },
@@ -1592,7 +1732,7 @@
         "kind": 6,
         "importPath": "film_manager.views",
         "description": "film_manager.views",
-        "peekOfCode": "class FilmListView(ListView):\n    model = Film\n    fields = [\"id\",\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/films_list.html'\n    context_object_name = 'films'\n    paginate_by = 5\nclass FilmUpdateView(UpdateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'",
+        "peekOfCode": "class FilmListView(StaffRequiredMixin, ListView):\n    model = Film\n    fields = [\"id\",\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/films_list.html'\n    context_object_name = 'films'\n    paginate_by = 5\nclass FilmUpdateView(StaffRequiredMixin, UpdateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'",
         "detail": "film_manager.views",
         "documentation": {}
     },
@@ -1601,7 +1741,7 @@
         "kind": 6,
         "importPath": "film_manager.views",
         "description": "film_manager.views",
-        "peekOfCode": "class FilmUpdateView(UpdateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'\n    success_url = reverse_lazy('film_list')\nclass FilmDeleteView(DeleteView):\n    model = Film\n    template_name = 'dashboard/films/film_confirm_delete.html'\n    success_url = reverse_lazy('film_list')\n    def get(self, request, *args, **kwargs):",
+        "peekOfCode": "class FilmUpdateView(StaffRequiredMixin, UpdateView):\n    model = Film\n    fields = [\"titre\", \"duree\", \"genre\", \"realisateur\", \"affiche\"]\n    template_name = 'dashboard/films/form_film.html'\n    success_url = reverse_lazy('film_list')\nclass FilmDeleteView(StaffRequiredMixin, DeleteView):\n    model = Film\n    template_name = 'dashboard/films/film_confirm_delete.html'\n    success_url = reverse_lazy('film_list')\n    def get(self, request, *args, **kwargs):",
         "detail": "film_manager.views",
         "documentation": {}
     },
@@ -1610,7 +1750,7 @@
         "kind": 6,
         "importPath": "film_manager.views",
         "description": "film_manager.views",
-        "peekOfCode": "class FilmDeleteView(DeleteView):\n    model = Film\n    template_name = 'dashboard/films/film_confirm_delete.html'\n    success_url = reverse_lazy('film_list')\n    def get(self, request, *args, **kwargs):\n        return self.post(request,*args, **kwargs)\nclass FilmDetailView(DetailView):\n    model = Film\n    template_name = 'client/film_detail.html'\n    context_object_name = 'film'",
+        "peekOfCode": "class FilmDeleteView(StaffRequiredMixin, DeleteView):\n    model = Film\n    template_name = 'dashboard/films/film_confirm_delete.html'\n    success_url = reverse_lazy('film_list')\n    def get(self, request, *args, **kwargs):\n        return self.post(request,*args, **kwargs)\nclass FilmDetailView(DetailView):\n    model = Film\n    template_name = 'client/film_detail.html'\n    context_object_name = 'film'",
         "detail": "film_manager.views",
         "documentation": {}
     },
@@ -1619,7 +1759,16 @@
         "kind": 6,
         "importPath": "film_manager.views",
         "description": "film_manager.views",
-        "peekOfCode": "class FilmDetailView(DetailView):\n    model = Film\n    template_name = 'client/film_detail.html'\n    context_object_name = 'film'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        context['seances'] = self.object.seances.order_by('date_heure')\n        return context",
+        "peekOfCode": "class FilmDetailView(DetailView):\n    model = Film\n    template_name = 'client/film_detail.html'\n    context_object_name = 'film'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        context['seances'] = self.object.seances.order_by('date_heure')\n        return context\nclass ClientFilmListView(ListView):\n    model = Film",
+        "detail": "film_manager.views",
+        "documentation": {}
+    },
+    {
+        "label": "ClientFilmListView",
+        "kind": 6,
+        "importPath": "film_manager.views",
+        "description": "film_manager.views",
+        "peekOfCode": "class ClientFilmListView(ListView):\n    model = Film\n    template_name = 'client/film_list.html'\n    context_object_name = 'films'\n    paginate_by = 12\n    ordering = ['-created_at']\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        query = self.request.GET.get('q')\n        if query:",
         "detail": "film_manager.views",
         "documentation": {}
     },
@@ -1687,11 +1836,20 @@
         "documentation": {}
     },
     {
+        "label": "StaffRequiredMixin",
+        "kind": 6,
+        "importPath": "reservation_manager.views",
+        "description": "reservation_manager.views",
+        "peekOfCode": "class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):\n    def test_func(self):\n        return self.request.user.is_staff\nclass ReservationListView(StaffRequiredMixin, ListView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_list.html'\n    context_object_name = 'reservations'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass ReservationDetailView(StaffRequiredMixin, DetailView):",
+        "detail": "reservation_manager.views",
+        "documentation": {}
+    },
+    {
         "label": "ReservationListView",
         "kind": 6,
         "importPath": "reservation_manager.views",
         "description": "reservation_manager.views",
-        "peekOfCode": "class ReservationListView(ListView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_list.html'\n    context_object_name = 'reservations'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass ReservationDetailView(DetailView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_detail.html'\n    context_object_name = 'reservation'",
+        "peekOfCode": "class ReservationListView(StaffRequiredMixin, ListView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_list.html'\n    context_object_name = 'reservations'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass ReservationDetailView(StaffRequiredMixin, DetailView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_detail.html'\n    context_object_name = 'reservation'",
         "detail": "reservation_manager.views",
         "documentation": {}
     },
@@ -1700,7 +1858,7 @@
         "kind": 6,
         "importPath": "reservation_manager.views",
         "description": "reservation_manager.views",
-        "peekOfCode": "class ReservationDetailView(DetailView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_detail.html'\n    context_object_name = 'reservation'",
+        "peekOfCode": "class ReservationDetailView(StaffRequiredMixin, DetailView):\n    model = Reservation\n    template_name = 'dashboard/reservations/reservation_detail.html'\n    context_object_name = 'reservation'",
         "detail": "reservation_manager.views",
         "documentation": {}
     },
@@ -1750,11 +1908,20 @@
         "documentation": {}
     },
     {
+        "label": "StaffRequiredMixin",
+        "kind": 6,
+        "importPath": "salle_manager.views",
+        "description": "salle_manager.views",
+        "peekOfCode": "class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):\n    def test_func(self):\n        return self.request.user.is_staff\nclass SalleListView(StaffRequiredMixin, ListView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_list.html'\n    context_object_name = 'salles'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass SalleCreateView(StaffRequiredMixin, CreateView):",
+        "detail": "salle_manager.views",
+        "documentation": {}
+    },
+    {
         "label": "SalleListView",
         "kind": 6,
         "importPath": "salle_manager.views",
         "description": "salle_manager.views",
-        "peekOfCode": "class SalleListView(ListView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_list.html'\n    context_object_name = 'salles'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass SalleCreateView(CreateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'",
+        "peekOfCode": "class SalleListView(StaffRequiredMixin, ListView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_list.html'\n    context_object_name = 'salles'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass SalleCreateView(StaffRequiredMixin, CreateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'",
         "detail": "salle_manager.views",
         "documentation": {}
     },
@@ -1763,7 +1930,7 @@
         "kind": 6,
         "importPath": "salle_manager.views",
         "description": "salle_manager.views",
-        "peekOfCode": "class SalleCreateView(CreateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')\nclass SalleUpdateView(UpdateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')",
+        "peekOfCode": "class SalleCreateView(StaffRequiredMixin, CreateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')\nclass SalleUpdateView(StaffRequiredMixin, UpdateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')",
         "detail": "salle_manager.views",
         "documentation": {}
     },
@@ -1772,7 +1939,7 @@
         "kind": 6,
         "importPath": "salle_manager.views",
         "description": "salle_manager.views",
-        "peekOfCode": "class SalleUpdateView(UpdateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')\nclass SalleDeleteView(DeleteView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_confirm_delete.html'\n    success_url = reverse_lazy('salle_list')",
+        "peekOfCode": "class SalleUpdateView(StaffRequiredMixin, UpdateView):\n    model = Salle\n    fields = ['cinema', 'numero', 'capacite', 'type_ecran']\n    template_name = 'dashboard/salles/form_salle.html'\n    success_url = reverse_lazy('salle_list')\nclass SalleDeleteView(StaffRequiredMixin, DeleteView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_confirm_delete.html'\n    success_url = reverse_lazy('salle_list')",
         "detail": "salle_manager.views",
         "documentation": {}
     },
@@ -1781,7 +1948,7 @@
         "kind": 6,
         "importPath": "salle_manager.views",
         "description": "salle_manager.views",
-        "peekOfCode": "class SalleDeleteView(DeleteView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_confirm_delete.html'\n    success_url = reverse_lazy('salle_list')",
+        "peekOfCode": "class SalleDeleteView(StaffRequiredMixin, DeleteView):\n    model = Salle\n    template_name = 'dashboard/salles/salle_confirm_delete.html'\n    success_url = reverse_lazy('salle_list')",
         "detail": "salle_manager.views",
         "documentation": {}
     },
@@ -1831,11 +1998,20 @@
         "documentation": {}
     },
     {
+        "label": "StaffRequiredMixin",
+        "kind": 6,
+        "importPath": "seance_manager.views",
+        "description": "seance_manager.views",
+        "peekOfCode": "class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):\n    def test_func(self):\n        return self.request.user.is_staff\nclass SeanceListView(StaffRequiredMixin, ListView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_list.html'\n    context_object_name = 'seances'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass SeanceCreateView(StaffRequiredMixin, CreateView):",
+        "detail": "seance_manager.views",
+        "documentation": {}
+    },
+    {
         "label": "SeanceListView",
         "kind": 6,
         "importPath": "seance_manager.views",
         "description": "seance_manager.views",
-        "peekOfCode": "class SeanceListView(ListView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_list.html'\n    context_object_name = 'seances'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass SeanceCreateView(CreateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'",
+        "peekOfCode": "class SeanceListView(StaffRequiredMixin, ListView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_list.html'\n    context_object_name = 'seances'\n    paginate_by = 10\n    ordering = ['-created_at']\nclass SeanceCreateView(StaffRequiredMixin, CreateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'",
         "detail": "seance_manager.views",
         "documentation": {}
     },
@@ -1844,7 +2020,7 @@
         "kind": 6,
         "importPath": "seance_manager.views",
         "description": "seance_manager.views",
-        "peekOfCode": "class SeanceCreateView(CreateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')\nclass SeanceUpdateView(UpdateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')",
+        "peekOfCode": "class SeanceCreateView(StaffRequiredMixin, CreateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')\nclass SeanceUpdateView(StaffRequiredMixin, UpdateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')",
         "detail": "seance_manager.views",
         "documentation": {}
     },
@@ -1853,7 +2029,7 @@
         "kind": 6,
         "importPath": "seance_manager.views",
         "description": "seance_manager.views",
-        "peekOfCode": "class SeanceUpdateView(UpdateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')\nclass SeanceDeleteView(DeleteView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_confirm_delete.html'\n    success_url = reverse_lazy('seance_list')",
+        "peekOfCode": "class SeanceUpdateView(StaffRequiredMixin, UpdateView):\n    model = Seance\n    fields = ['film', 'salle', 'date_heure', 'prix']\n    template_name = 'dashboard/seances/form_seance.html'\n    success_url = reverse_lazy('seance_list')\nclass SeanceDeleteView(StaffRequiredMixin, DeleteView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_confirm_delete.html'\n    success_url = reverse_lazy('seance_list')",
         "detail": "seance_manager.views",
         "documentation": {}
     },
@@ -1862,7 +2038,7 @@
         "kind": 6,
         "importPath": "seance_manager.views",
         "description": "seance_manager.views",
-        "peekOfCode": "class SeanceDeleteView(DeleteView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_confirm_delete.html'\n    success_url = reverse_lazy('seance_list')",
+        "peekOfCode": "class SeanceDeleteView(StaffRequiredMixin, DeleteView):\n    model = Seance\n    template_name = 'dashboard/seances/seance_confirm_delete.html'\n    success_url = reverse_lazy('seance_list')",
         "detail": "seance_manager.views",
         "documentation": {}
     },

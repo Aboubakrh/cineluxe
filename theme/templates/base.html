@@ -7,8 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
 
     <title>{% block title %} {% endblock title%}</title>
     {% tailwind_css %}
@@ -18,9 +20,11 @@
             background: rgba(255, 255, 255, 0.03);
             @apply backdrop-blur-[12px] border border-white/10;
         }
+
         .hero-gradient {
             background: linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, 0.4) 50%, rgba(5, 5, 5, 0) 100%);
         }
+
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -42,10 +46,8 @@
                 <h1 class="text-2xl font-black tracking-tighter uppercase italic">CinéLuxe</h1>
             </div>
             <nav class="hidden md:flex items-center gap-10">
-                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">FILMS</a>
-                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">EXPÉRIENCES</a>
-                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">SERVICES VIP</a>
-                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">CINÉMAS</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors"
+                    href="{% url 'accueil' %}">FILMS</a>
             </nav>
             <div class="flex items-center gap-4">
                 <button

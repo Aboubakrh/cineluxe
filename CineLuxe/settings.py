@@ -133,3 +133,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 
+
+LOGIN_URL = '/admin/login/'
+LOGIN_REDIRECT_URL = '/admin-custom/'

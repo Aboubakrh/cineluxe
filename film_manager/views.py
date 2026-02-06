@@ -4,26 +4,32 @@ from django.views.generic import TemplateView, CreateView, ListView, UpdateView,
 
 from film_manager.models import Film
 
-class FilmCreateView(CreateView):
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.is_staff
+
+class FilmCreateView(StaffRequiredMixin, CreateView):
     model = Film
     fields = ["titre", "duree", "genre", "realisateur", "synopsis", "affiche"]
     template_name = 'dashboard/films/form_film.html'
     success_url = reverse_lazy('film_list')
 
-class FilmListView(ListView):
+class FilmListView(StaffRequiredMixin, ListView):
     model = Film
     fields = ["id","titre", "duree", "genre", "realisateur", "affiche"]
     template_name = 'dashboard/films/films_list.html'
     context_object_name = 'films'
     paginate_by = 5
 
-class FilmUpdateView(UpdateView):
+class FilmUpdateView(StaffRequiredMixin, UpdateView):
     model = Film
     fields = ["titre", "duree", "genre", "realisateur", "affiche"]
     template_name = 'dashboard/films/form_film.html'
     success_url = reverse_lazy('film_list')
 
-class FilmDeleteView(DeleteView):
+class FilmDeleteView(StaffRequiredMixin, DeleteView):
     model = Film
     template_name = 'dashboard/films/film_confirm_delete.html'
     success_url = reverse_lazy('film_list')
@@ -39,3 +45,17 @@ class FilmDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['seances'] = self.object.seances.order_by('date_heure')
         return context
+
+class ClientFilmListView(ListView):
+    model = Film
+    template_name = 'client/film_list.html'
+    context_object_name = 'films'
+    paginate_by = 12
+    ordering = ['-created_at']
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            queryset = queryset.filter(titre__icontains=query)
+        return queryset

@@ -32,18 +32,14 @@
                 <!-- Film -->
                 <div class="space-y-2">
                     <label for="id_film" class="text-sm font-bold text-slate-700 dark:text-zinc-300">Film</label>
-                    {{ form.film|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700
-                    rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary
-                    transition-all text-slate-900 dark:text-zinc-100" }}
-                    {{ form.film.errors }}
+                    {{ form.film|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primarytransition-all text-slate-900 dark:text-zinc-100" }}
+                    {{ form.film.errors }} 
                 </div>
 
                 <!-- Salle -->
                 <div class="space-y-2">
                     <label for="id_salle" class="text-sm font-bold text-slate-700 dark:text-zinc-300">Salle</label>
-                    {{ form.salle|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200
-                    dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20
-                    focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
+                    {{ form.salle|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
                     {{ form.salle.errors }}
                 </div>
 
@@ -52,9 +48,7 @@
                     <div class="space-y-2">
                         <label for="id_date_heure" class="text-sm font-bold text-slate-700 dark:text-zinc-300">Date et
                             Heure</label>
-                        {{ form.date_heure|attr:"type:datetime-local"|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50
-                        border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2
-                        focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
+                        {{ form.date_heure|attr:"type:datetime-local"|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
                         {{ form.date_heure.errors }}
                     </div>
 
@@ -62,9 +56,7 @@
                     <div class="space-y-2">
                         <label for="id_prix" class="text-sm font-bold text-slate-700 dark:text-zinc-300">Prix
                             (€)</label>
-                        {{ form.prix|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200
-                        dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20
-                        focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
+                        {{ form.prix|add_class:"w-full bg-slate-50 dark:bg-zinc-800/50 border-slate-200 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-zinc-100" }}
                         {{ form.prix.errors }}
                     </div>
                 </div>

@@ -26,23 +26,18 @@
                 conspirateurs qui ont détruit sa famille.
             </p>
             <div class="flex items-center gap-4 pt-4">
-                <button
+                <a href="#films"
                     class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center gap-2 transition-transform hover:scale-105">
                     <span class="material-symbols-outlined">confirmation_number</span>
                     RÉSERVER
-                </button>
-                <button
-                    class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center gap-2 border border-white/20 transition-transform hover:scale-105">
-                    <span class="material-symbols-outlined">play_arrow</span>
-                    VOIR LA BANDE-ANNONCE
-                </button>
+                </a>
             </div>
         </div>
     </div>
 </section>
 <section class="max-w-7xl mx-auto px-6 -mt-12 relative z-10">
     <div class="glass-effect p-6 rounded-2xl shadow-2xl">
-        <div class="flex flex-col lg:flex-row gap-4 items-center">
+        <form method="get" action="." class="flex flex-col lg:flex-row gap-4 items-center">
             <div class="flex-1 w-full">
                 <label class="flex flex-col min-w-40 h-14 w-full">
                     <div
@@ -50,42 +45,25 @@
                         <div class="text-gray-400 flex items-center justify-center pl-4">
                             <span class="material-symbols-outlined">search</span>
                         </div>
-                        <input
+                        <input name="q" value="{{ request.GET.q }}"
                             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-white focus:outline-0 focus:ring-0 border-none bg-transparent placeholder:text-gray-500 px-4 text-base font-normal"
-                            placeholder="Rechercher des films, acteurs ou réalisateurs..." value="" />
+                            placeholder="Rechercher des films..." />
                     </div>
                 </label>
             </div>
             <div class="flex flex-wrap gap-2">
-                <button
-                    class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-primary text-white px-5 transition-colors">
-                    <span class="text-sm font-bold uppercase tracking-wider">Toutes les villes</span>
-                    <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
-                </button>
-                <button
-                    class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 px-5 transition-colors border border-white/10">
-                    <span class="text-sm font-semibold uppercase tracking-wider">Action</span>
-                </button>
-                <button
-                    class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 px-5 transition-colors border border-white/10">
-                    <span class="text-sm font-semibold uppercase tracking-wider">S-F</span>
-                </button>
-                <button
-                    class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 px-5 transition-colors border border-white/10">
-                    <span class="text-sm font-semibold uppercase tracking-wider">IMAX</span>
-                </button>
-                <button
-                    class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 px-5 transition-colors border border-white/10">
-                    <span class="text-sm font-semibold uppercase tracking-wider">Luxe</span>
+                <button type="submit"
+                    class="flex h-12 items-center justify-center gap-x-2 rounded-xl bg-primary text-white px-8 transition-colors font-bold uppercase tracking-wider hover:bg-primary/90">
+                    Rechercher
                 </button>
             </div>
-        </div>
+        </form>
     </div>
 </section>
-<section class="max-w-7xl mx-auto px-6 py-16">
+<section id="films" class="max-w-7xl mx-auto px-6 py-16">
     <div class="flex items-center justify-between mb-8">
         <h2 class="text-3xl font-bold tracking-tight">À l'affiche</h2>
-        <a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">
+        <a class="text-primary font-bold flex items-center gap-1 hover:underline" href="{% url 'client_film_list' %}">
             VOIR TOUT
             <span class="material-symbols-outlined text-[20px]">trending_flat</span>
         </a>
@@ -120,26 +98,6 @@
             </div>
         </div>
         {% endfor %}
-    </div>
-</section>
-<section class="max-w-7xl mx-auto px-6 pb-24">
-    <div class="relative overflow-hidden rounded-3xl h-[400px]">
-        <div class="absolute inset-0 bg-cover bg-center"
-            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwa_quopdXeQj-fNqgJrhnLc8cVinvZ2cUPEnxOW2YAj2Iw54jZNS_tvU7kkYoCJRsqBAuDJ_sE6iJd-PuboFQkXAp1jUeNlKVwBXD2RSbBEG6DsRs7Yb6uy7YB0Wy_ni8feEljnR9qFXEgZ0KzB2pYTH9WpNpFATscMKbit-5t4rCQ0mgUiPQSudBqJbjrUF7O4dojb_SkIUJ1qCuCFsnnZ3qlax0Ew-ehRFt3wILwp-DQoccQylmuLiSHAB-RCy708WaQ8tLfNmm');">
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/70 to-transparent"></div>
-        <div class="relative h-full flex flex-col justify-center px-12 max-w-xl space-y-4">
-            <h2 class="text-4xl font-black italic tracking-tight">DÉCOUVREZ LE <span class="text-primary">LUXE</span>
-            </h2>
-            <p class="text-gray-300">Laissez-vous tenter par nos salons VIP avec fauteuils entièrement inclinables,
-                repas gastronomiques servis à votre place et systèmes sonores premium.</p>
-            <div>
-                <button
-                    class="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-bold transition-colors">
-                    DÉCOUVRIR LES SERVICES VIP
-                </button>
-            </div>
-        </div>
     </div>
 </section>
 {% endblock %}
